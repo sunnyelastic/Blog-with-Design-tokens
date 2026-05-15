@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elastic Blogs — Component Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  /* Inline fallback for experimental tokens — see design-system.css for full context.
+     This block only takes effect if design-system.css fails to load. */
+  :root {
+    --fw-body: 500;  /* EXPERIMENT 2026-05-14: body weight Medium (vs default 400). */
+  }
+</style>
+<link rel="stylesheet" href="design-system.css" />
+<style>
+  /* =========================================================
+     Component library — local docs page styles only.
+     The components themselves are styled by design-system.css.
+     ========================================================= */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    font-weight: var(--fw-body, 400);  /* EXPERIMENT 2026-05-14: see design-system.css. */
+    color: var(--gray-dark);
+    background: #FAFBFC;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ----- Layout ----- */
+  .docs {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    min-height: 100vh;
+  }
+  .docs__sidebar {
+    background: #FFFFFF;
+    border-right: 1px solid var(--border);
+    padding: var(--s-32) var(--s-24);
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .docs__brand {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-bold);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin: 0 0 var(--s-8) 0;
+  }
+  .docs__title {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-bold);
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--black);
+    margin: 0 0 var(--s-32) 0;
+  }
+  .docs__nav-group {
+    margin-bottom: var(--s-24);
+  }
+  .docs__nav-heading {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin: 0 0 var(--s-8) 0;
+  }
+  .docs__nav ul { list-style: none; margin: 0; padding: 0; }
+  .docs__nav a {
+    display: block;
+    padding: 6px 8px;
+    margin-left: -8px;
+    font-size: 14px;
+    color: var(--gray-dark);
+    border-radius: var(--r-4);
+    transition: background-color 0.12s ease, color 0.12s ease;
+  }
+  .docs__nav a:hover { background: var(--gray-lightest); color: var(--blue); }
+
+  .docs__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: var(--s-32);
+    padding-top: var(--s-16);
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--blue);
+    font-weight: var(--fw-medium);
+  }
+  .docs__back:hover { text-decoration: underline; }
+
+  .docs__main {
+    padding: var(--s-48) var(--s-64) var(--s-64);
+    max-width: 980px;
+  }
+  .docs__intro {
+    margin-bottom: var(--s-48);
+    padding-bottom: var(--s-32);
+    border-bottom: 1px solid var(--border);
+  }
+  .docs__h1 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.15;
+    color: var(--black);
+    margin: 0 0 var(--s-12) 0;
+    letter-spacing: -0.01em;
+  }
+  .docs__lede {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--gray);
+    margin: 0;
+    max-width: 640px;
+  }
+
+  /* ----- Sections ----- */
+  .docs__section { margin-bottom: var(--s-64); }
+  .docs__section:last-child { margin-bottom: 0; }
+  .docs__h2 {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-bold);
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--black);
+    margin: 0 0 var(--s-8) 0;
+    letter-spacing: -0.005em;
+  }
+  .docs__section-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--gray);
+    margin: 0 0 var(--s-32) 0;
+    max-width: 640px;
+  }
+
+  .docs__h3 {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-semibold);
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--black);
+    margin: 0 0 var(--s-16) 0;
+  }
+
+  /* ----- Stage: where components are displayed ----- */
+  .stage {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--r-8);
+    padding: var(--s-32);
+    margin-bottom: var(--s-16);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-16);
+    align-items: center;
+  }
+  .stage--dark {
+    background: var(--gray-lightest);
+  }
+  .stage__label {
+    width: 100%;
+    font-size: 11px;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: var(--s-8);
+  }
+
+  /* ----- Code block ----- */
+  .code {
+    background: #1F2228;
+    color: #E6ECF3;
+    border-radius: var(--r-8);
+    padding: var(--s-16) var(--s-24);
+    margin: 0 0 var(--s-32) 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .code .tag    { color: #FF9CC7; }
+  .code .attr   { color: #FFD580; }
+  .code .str    { color: #A8E6A1; }
+  .code .comm   { color: var(--gray); font-style: italic; }
+
+  /* ----- Spec block (right side of paired layout) ----- */
+  .spec {
+    background: var(--gray-lightest);
+    border-radius: var(--r-8);
+    padding: var(--s-24);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .spec dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px var(--s-16); }
+  .spec dt { font-weight: var(--fw-semibold); color: var(--gray); }
+  .spec dd { margin: 0; color: var(--gray-dark); font-family: var(--font-mono); font-size: 12px; }
+
+  .pair {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: var(--s-24);
+    align-items: start;
+    margin-bottom: var(--s-32);
+  }
+  @media (max-width: 1100px) {
+    .pair { grid-template-columns: 1fr; }
+    .docs { grid-template-columns: 1fr; }
+    .docs__sidebar { position: static; height: auto; }
+    .docs__main { padding: var(--s-32); }
+  }
+
+  /* ----- Tokens: color swatches ----- */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--s-16);
+    margin-bottom: var(--s-32);
+  }
+  .swatch {
+    border: 1px solid var(--border);
+    border-radius: var(--r-8);
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+  .swatch__color {
+    height: 80px;
+    border-bottom: 1px solid var(--border);
+  }
+  .swatch__meta {
+    padding: var(--s-12) var(--s-16);
+  }
+  .swatch__name {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: var(--fw-semibold);
+    color: var(--gray-dark);
+    margin: 0 0 2px 0;
+  }
+  .swatch__hex {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--gray);
+    margin: 0;
+  }
+  .swatch__note {
+    font-size: 12px;
+    color: var(--gray);
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+  }
+
+  /* ----- Tokens: scale tables ----- */
+  .token-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: var(--s-32);
+    border: 1px solid var(--border);
+    border-radius: var(--r-8);
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+  .token-table th,
+  .token-table td {
+    text-align: left;
+    padding: var(--s-12) var(--s-16);
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .token-table th {
+    background: var(--gray-lightest);
+    font-weight: var(--fw-semibold);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gray);
+  }
+  .token-table tr:last-child td { border-bottom: none; }
+  .token-table .var {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--gray-dark);
+    font-weight: var(--fw-semibold);
+  }
+  .token-table .val {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  /* Spacing visualization */
+  .spacing-bar {
+    height: 16px;
+    background: var(--blue);
+    border-radius: 2px;
+  }
+
+  /* Type sample row */
+  .type-sample {
+    margin: 0;
+    color: var(--gray-dark);
+  }
+</style>
+</head>
+<body>
+
+<div class="docs">
+
+  <!-- =================== SIDEBAR =================== -->
+  <aside class="docs__sidebar">
+    <p class="docs__brand">Elastic Blogs</p>
+    <h1 class="docs__title">Component Library</h1>
+
+    <nav class="docs__nav">
+      <div class="docs__nav-group">
+        <p class="docs__nav-heading">Foundations</p>
+        <ul>
+          <li><a href="#colors">Colors</a></li>
+          <li><a href="#typography">Typography</a></li>
+          <li><a href="#spacing">Spacing</a></li>
+          <li><a href="#radius">Radius</a></li>
+        </ul>
+      </div>
+      <div class="docs__nav-group">
+        <p class="docs__nav-heading">Components</p>
+        <ul>
+          <li><a href="#buttons">Buttons</a></li>
+          <li><a href="#chips">Chips / Tags</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <a href="index.html" class="docs__back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to prototype
+    </a>
+  </aside>
+
+  <!-- =================== MAIN =================== -->
+  <main class="docs__main">
+
+    <header class="docs__intro">
+      <h1 class="docs__h1">Component Library</h1>
+      <p class="docs__lede">A working reference for the components used across Search Labs, Observability Labs, Security Labs, and the corporate Blog. Live examples, code snippets, and design token values.</p>
+    </header>
+
+    <!-- =========================================================
+         FOUNDATIONS — COLORS
+         ========================================================= -->
+    <section class="docs__section" id="colors">
+      <h2 class="docs__h2">Colors</h2>
+      <p class="docs__section-desc">A two-family surface system (Neutral grays + Brand blues) plus a shared text scale, all WCAG AA/AAA-vetted (per the Elastic library "Rule #1"). Brand colors (Elastic blue and yellow) sit alongside the surface families for chrome and accents. The thirteen legacy Search Labs tokens (<code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">--gray</code>, <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">--white</code>, <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">--border</code>, etc.) are preserved as <strong>aliases</strong> that resolve to the new tokens — they keep existing CSS rendering while the prototype migrates to the new names.</p>
+
+      <h3 class="docs__h3">Brand colors</h3>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background: #0B64DD;"></div>
+          <div class="swatch__meta">
+            <p class="swatch__name">--brand-elastic-blue</p>
+            <p class="swatch__hex">#0B64DD</p>
+            <p class="swatch__note">Elastic primary brand blue. Buttons, links, chips, hover states.</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #FEC514;"></div>
+          <div class="swatch__meta">
+            <p class="swatch__name">--brand-elastic-yellow</p>
+            <p class="swatch__hex">#FEC514</p>
+            <p class="swatch__note">Brand yellow. Legacy decorative use.</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #FDC031;"></div>
+          <div class="swatch__meta">
+            <p class="swatch__name">--brand-elastic-yellow-dark</p>
+            <p class="swatch__hex">#FDC031</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #FFDA3D;"></div>
+          <div class="swatch__meta">
+            <p class="swatch__name">--brand-elastic-yellow-light</p>
+            <p class="swatch__hex">#FFDA3D</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="docs__h3">Neutral surfaces</h3>
+      <p class="docs__section-desc" style="margin-top: -8px;">Light to dark. Pre-vetted against the text scale below for WCAG contrast.</p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background: #FFFFFF; box-shadow: inset 0 0 0 1px #C4C7D1;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-neutral-1</p><p class="swatch__hex">#FFFFFF</p><p class="swatch__note">Base light surface (White 0). Default page background.</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #E2E3E7;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-neutral-2</p><p class="swatch__hex">#E2E3E7</p><p class="swatch__note">Subtle section background (Gray 50). Hero panels, dividers between content blocks.</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #C4C7D1;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-neutral-3</p><p class="swatch__hex">#C4C7D1</p><p class="swatch__note">Accent / hairline-as-surface (Gray 200). Doubles as the canonical border color.</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #373A45;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-neutral-dark-1</p><p class="swatch__hex">#373A45</p><p class="swatch__note">Dark surface, lighter shade (Gray 800).</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #1D1F26;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-neutral-dark-2</p><p class="swatch__hex">#1D1F26</p><p class="swatch__note">Dark surface (Gray 1000).</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #000000;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-neutral-dark-3</p><p class="swatch__hex">#000000</p><p class="swatch__note">Deepest dark surface (Black 1000). Footer.</p></div>
+        </div>
+      </div>
+
+      <h3 class="docs__h3">Brand surfaces</h3>
+      <p class="docs__section-desc" style="margin-top: -8px;">Tinted blues, light to dark. Pair with the text scale for branded panels and CTAs.</p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background: #D9E8FF;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-brand-1</p><p class="swatch__hex">#D9E8FF</p><p class="swatch__note">Lightest brand surface (Blue E 50).</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #BFDBFF;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-brand-2</p><p class="swatch__hex">#BFDBFF</p><p class="swatch__note">Light brand surface (Blue E 100).</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #A3CBFF;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-brand-3</p><p class="swatch__hex">#A3CBFF</p><p class="swatch__note">Deepest pale brand surface (Blue E 200).</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #123778;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-brand-dark-1</p><p class="swatch__hex">#123778</p><p class="swatch__note">Dark brand surface (Blue E 800).</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #0D2F5E;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-brand-dark-2</p><p class="swatch__hex">#0D2F5E</p><p class="swatch__note">Dark brand surface (Blue E 900).</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #0A2342;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--surface-brand-dark-3</p><p class="swatch__hex">#0A2342</p><p class="swatch__note">Deepest dark brand surface (Blue E 1000).</p></div>
+        </div>
+      </div>
+
+      <h3 class="docs__h3">Text scale</h3>
+      <p class="docs__section-desc" style="margin-top: -8px;">Three tones for text on light surfaces and three inverse tones for text on dark surfaces. Each pairing is pre-vetted for WCAG AA/AAA contrast.</p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background: #1D1F26;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--text-default</p><p class="swatch__hex">#1D1F26</p><p class="swatch__note">Primary text on light surfaces. AAA contrast on white.</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #373A45;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--text-subtler</p><p class="swatch__hex">#373A45</p><p class="swatch__note">Secondary text on light surfaces.</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #474B57;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--text-subtlest</p><p class="swatch__hex">#474B57</p><p class="swatch__note">Tertiary text on light surfaces. ~9.5:1 contrast on white (AAA).</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #E2E3E7; box-shadow: inset 0 0 0 1px #C4C7D1;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--text-inverse-default</p><p class="swatch__hex">#E2E3E7</p><p class="swatch__note">Primary text on dark surfaces.</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #C4C7D1;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--text-inverse-subtler</p><p class="swatch__hex">#C4C7D1</p><p class="swatch__note">Secondary text on dark surfaces.</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #B2B6C2;"></div>
+          <div class="swatch__meta"><p class="swatch__name">--text-inverse-subtlest</p><p class="swatch__hex">#B2B6C2</p><p class="swatch__note">Tertiary text on dark surfaces.</p></div>
+        </div>
+      </div>
+
+      <h3 class="docs__h3">Legacy aliases</h3>
+      <p class="docs__section-desc" style="margin-top: -8px;">Thirteen original Search Labs color tokens, kept so existing CSS keeps rendering. Each redirects to one of the new tokens above. New code should reach for the canonical name; over time these aliases can be retired as references migrate.</p>
+      <table class="token-table">
+        <thead>
+          <tr><th>Legacy token</th><th>Now resolves to</th><th>Value</th><th>Was before migration</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="var">--white</td>         <td class="var">--surface-neutral-1</td>          <td class="val">#FFFFFF</td>                <td class="val">#FFFFFF (Δ 0)</td></tr>
+          <tr><td class="var">--black</td>         <td class="var">--surface-neutral-dark-3</td>     <td class="val">#000000</td>                <td class="val">#0B0C0E (slightly darker)</td></tr>
+          <tr><td class="var">--footer-bg</td>     <td class="var">--surface-neutral-dark-3</td>     <td class="val">#000000</td>                <td class="val">#0E0F10 (slightly darker)</td></tr>
+          <tr><td class="var">--gray-dark</td>     <td class="var">--text-default</td>               <td class="val">#1D1F26</td>                <td class="val">#2E3137 (darker, +AAA)</td></tr>
+          <tr><td class="var">--gray</td>          <td class="var">--text-subtlest</td>              <td class="val">#474B57</td>                <td class="val">#6B7079 (noticeably darker)</td></tr>
+          <tr><td class="var">--gray-medium</td>   <td class="var">--surface-neutral-3</td>          <td class="val">#C4C7D1</td>                <td class="val">#C8D1E9 (tiny shift, cooler)</td></tr>
+          <tr><td class="var">--gray-lightest</td> <td class="var">--surface-neutral-2</td>          <td class="val">#E2E3E7</td>                <td class="val">#F5F8FB (visibly grayer)</td></tr>
+          <tr><td class="var">--border</td>        <td class="var">--surface-neutral-3</td>          <td class="val">#C4C7D1</td>                <td class="val">#E6ECF3 (darker hairlines)</td></tr>
+          <tr><td class="var">--hero-bg</td>       <td class="var">--surface-neutral-2</td>          <td class="val">#E2E3E7</td>                <td class="val">#F5F8FB (same Δ as gray-lightest)</td></tr>
+          <tr><td class="var">--primary</td>       <td class="var">--brand-elastic-yellow</td>       <td class="val">#FEC514</td>                <td class="val">#FEC514 (Δ 0)</td></tr>
+          <tr><td class="var">--primary-dark</td>  <td class="var">--brand-elastic-yellow-dark</td>  <td class="val">#FDC031</td>                <td class="val">#FDC031 (Δ 0)</td></tr>
+          <tr><td class="var">--yellow-light</td>  <td class="var">--brand-elastic-yellow-light</td> <td class="val">#FFDA3D</td>                <td class="val">#FFDA3D (Δ 0)</td></tr>
+          <tr><td class="var">--blue</td>          <td class="var">--brand-elastic-blue</td>         <td class="val">#0B64DD</td>                <td class="val">#0B64DD (Δ 0)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- =========================================================
+         FOUNDATIONS — TYPOGRAPHY
+         ========================================================= -->
+    <section class="docs__section" id="typography">
+      <h2 class="docs__h2">Typography</h2>
+      <p class="docs__section-desc">Two type families. Headings use Mier B (with Inter as fallback); body copy and UI use Inter. Code samples use Roboto Mono. Sizes and line-heights are aligned to the Elastic library type scale — heading sizes round up slightly from the original Search Labs values, and line-heights tighten consistently. Mier B is referenced in <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">--font-heading</code> but is not currently loaded externally, so headings render in Inter as a fallback today.</p>
+
+      <h3 class="docs__h3">Font families</h3>
+      <table class="token-table">
+        <thead>
+          <tr><th>Token</th><th>Family stack</th><th>Sample</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="var">--font-heading</td>
+            <td class="val">'Mier B', 'Inter', system-ui, sans-serif</td>
+            <td><p class="type-sample" style="font-family: var(--font-heading); font-size: 20px; font-weight: var(--fw-bold);">Heading sample</p></td>
+          </tr>
+          <tr>
+            <td class="var">--font-body</td>
+            <td class="val">'Inter', system-ui, sans-serif</td>
+            <td><p class="type-sample" style="font-family: var(--font-body); font-size: 16px;">Body text sample</p></td>
+          </tr>
+          <tr>
+            <td class="var">--font-mono</td>
+            <td class="val">'Roboto Mono', ui-monospace, monospace</td>
+            <td><p class="type-sample" style="font-family: var(--font-mono); font-size: 14px;">code &amp; mono labels</p></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="docs__h3">Type scale</h3>
+      <table class="token-table">
+        <thead>
+          <tr><th>Token</th><th>Size / line-height</th><th>Library class</th><th>Sample</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="var">--fs-h2</td>
+            <td class="val">40px / 1.2</td>
+            <td class="val">Headline Large</td>
+            <td><p class="type-sample" style="font-family: var(--font-heading); font-size: var(--fs-h2); line-height: var(--lh-h2); font-weight: var(--fw-bold);">Heading 2</p></td>
+          </tr>
+          <tr>
+            <td class="var">--fs-h3</td>
+            <td class="val">32px / 1.2</td>
+            <td class="val">Headline Small</td>
+            <td><p class="type-sample" style="font-family: var(--font-heading); font-size: var(--fs-h3); line-height: var(--lh-h3); font-weight: var(--fw-bold);">Heading 3</p></td>
+          </tr>
+          <tr>
+            <td class="var">--fs-h4</td>
+            <td class="val">25px / 1.3</td>
+            <td class="val">Title Medium</td>
+            <td><p class="type-sample" style="font-family: var(--font-heading); font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: var(--fw-semibold);">Heading 4</p></td>
+          </tr>
+          <tr>
+            <td class="var">--fs-h5</td>
+            <td class="val">22px / 1.3</td>
+            <td class="val">Title Small</td>
+            <td><p class="type-sample" style="font-family: var(--font-heading); font-size: var(--fs-h5); line-height: var(--lh-h5); font-weight: var(--fw-semibold);">Heading 5</p></td>
+          </tr>
+          <tr>
+            <td class="var">--fs-link</td>
+            <td class="val">16px / 1.5</td>
+            <td class="val">Body Large / Label XLarge</td>
+            <td><p class="type-sample" style="font-size: var(--fs-link); line-height: var(--lh-link); font-weight: var(--fw-medium);">Link / button label</p></td>
+          </tr>
+          <tr>
+            <td class="var">--fs-body</td>
+            <td class="val">16px / 1.5</td>
+            <td class="val">Body Large</td>
+            <td><p class="type-sample" style="font-size: var(--fs-body); line-height: var(--lh-body);">Body text — the default for paragraphs and UI labels.</p></td>
+          </tr>
+          <tr>
+            <td class="var">--fs-small</td>
+            <td class="val">14px / 1.5</td>
+            <td class="val">Body Medium / Label Large / Code Medium</td>
+            <td><p class="type-sample" style="font-size: var(--fs-small); line-height: var(--lh-small);">Small text — used for metadata, captions, chips.</p></td>
+          </tr>
+          <tr>
+            <td class="var">--fs-xs</td>
+            <td class="val">12px / 1.5</td>
+            <td class="val">Body Small / Label Medium / Code Small</td>
+            <td><p class="type-sample" style="font-size: var(--fs-xs); line-height: var(--lh-xs);">Extra-small text — fine print, tertiary labels.</p></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="docs__h3">Font weights</h3>
+      <table class="token-table">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="var">--fw-regular</td>
+            <td class="val">400 (Inter Regular)</td>
+            <td class="val">Browser default; used where the body experiment doesn't apply. ~3 uses.</td>
+          </tr>
+          <tr>
+            <td class="var">--fw-medium</td>
+            <td class="val">500 (Inter Medium)</td>
+            <td class="val">UI labels, secondary headings, chip text, popular-item dates, link labels. ~17 uses. Library binds all Body / Label / Code styles at this weight.</td>
+          </tr>
+          <tr>
+            <td class="var">--fw-semibold</td>
+            <td class="val">600 (Inter SemiBold)</td>
+            <td class="val">Sub-headings (h4, h5), card titles, button labels (non-primary). ~17 uses.</td>
+          </tr>
+          <tr>
+            <td class="var">--fw-bold</td>
+            <td class="val">700 (Inter Bold)</td>
+            <td class="val">Headings (h1–h3), primary buttons, emphasis. ~63 uses. Library binds Display / Headline / Title at <strong>750 ExtraBold</strong>; 750 is non-standard and snaps to 700 on static fonts, so this token covers headings safely. If a true ExtraBold is later loaded, bump this token's value (one place to change).</td>
+          </tr>
+          <tr>
+            <td class="var">--fw-body</td>
+            <td class="val">500 (Inter Medium)</td>
+            <td class="val">🧪 <strong>Experiment</strong> — applies only to the base <code style="font-family: var(--font-mono); font-size: 13px;">body</code> rule. Kept distinct from <code style="font-family: var(--font-mono); font-size: 13px;">--fw-medium</code> because it answers a different question ("what weight is body, specifically?" vs. "what weight is Inter Medium?"). Toggling this token reverts the body experiment without affecting any other 500-weight usage. Inline fallback <code style="font-family: var(--font-mono); font-size: 13px;">&lt;style&gt;</code> in <code style="font-family: var(--font-mono); font-size: 13px;">index.html</code> + <code style="font-family: var(--font-mono); font-size: 13px;">components.html</code> serves as a safety net if <code style="font-family: var(--font-mono); font-size: 13px;">design-system.css</code> fails to load.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- =========================================================
+         FOUNDATIONS — SPACING
+         ========================================================= -->
+    <section class="docs__section" id="spacing">
+      <h2 class="docs__h2">Spacing</h2>
+      <p class="docs__section-desc">A linear 4 / 8-based scale. Use these tokens for padding, margin, and gap — avoid one-off pixel values. Every Search Labs <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">--s-*</code> value is an exact match to a primitive in the Elastic library dimension scale (Δ 0 across the board).</p>
+
+      <table class="token-table">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>Visualization</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="var">--s-4</td>  <td class="val">4px</td>  <td><div class="spacing-bar" style="width: 4px;"></div></td></tr>
+          <tr><td class="var">--s-8</td>  <td class="val">8px</td>  <td><div class="spacing-bar" style="width: 8px;"></div></td></tr>
+          <tr><td class="var">--s-12</td> <td class="val">12px</td> <td><div class="spacing-bar" style="width: 12px;"></div></td></tr>
+          <tr><td class="var">--s-16</td> <td class="val">16px</td> <td><div class="spacing-bar" style="width: 16px;"></div></td></tr>
+          <tr><td class="var">--s-24</td> <td class="val">24px</td> <td><div class="spacing-bar" style="width: 24px;"></div></td></tr>
+          <tr><td class="var">--s-32</td> <td class="val">32px</td> <td><div class="spacing-bar" style="width: 32px;"></div></td></tr>
+          <tr><td class="var">--s-48</td> <td class="val">48px</td> <td><div class="spacing-bar" style="width: 48px;"></div></td></tr>
+          <tr><td class="var">--s-64</td> <td class="val">64px</td> <td><div class="spacing-bar" style="width: 64px;"></div></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- =========================================================
+         FOUNDATIONS — RADIUS
+         ========================================================= -->
+    <section class="docs__section" id="radius">
+      <h2 class="docs__h2">Radius</h2>
+      <p class="docs__section-desc">Four corner-radius tokens. <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">--r-4</code> is the workhorse — used for buttons, inputs, and most cards. <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">--r-10</code> was consolidated to 8 px in the library alignment pass (no 10 px primitive exists upstream).</p>
+
+      <table class="token-table">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>Used for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="var">--r-4</td>    <td class="val">4px</td>                              <td>Buttons, inputs, small cards</td></tr>
+          <tr><td class="var">--r-8</td>    <td class="val">8px</td>                              <td>Cards, panels (and --r-10 since the consolidation)</td></tr>
+          <tr><td class="var">--r-10</td>   <td class="val">8px <em>(alias to --r-8)</em></td>   <td>Featured callouts. Was 10 px pre-migration; snapped to library dimension/8.</td></tr>
+          <tr><td class="var">--r-full</td> <td class="val">9999px</td>                           <td>Pills, chips, avatars</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- =========================================================
+         COMPONENTS — BUTTONS
+         ========================================================= -->
+    <section class="docs__section" id="buttons">
+      <h2 class="docs__h2">Buttons</h2>
+      <p class="docs__section-desc">Three variants. Primary for the main call to action on a page; secondary for the alternate; tertiary for inline or low-emphasis actions. All buttons share the same 40px height and 4px radius.</p>
+
+      <h3 class="docs__h3">Primary</h3>
+      <div class="pair">
+        <div>
+          <div class="stage">
+            <span class="stage__label">Default · Hover</span>
+            <a href="#" class="btn--primary">Start free trial</a>
+            <a href="#" class="btn--primary" style="background: #0855BD; border-color: #0855BD;">Start free trial</a>
+          </div>
+          <pre class="code"><span class="comm">&lt;!-- Primary button --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#"</span> <span class="attr">class</span>=<span class="str">"btn--primary"</span><span class="tag">&gt;</span>Start free trial<span class="tag">&lt;/a&gt;</span></pre>
+        </div>
+        <div class="spec">
+          <dl>
+            <dt>Background</dt><dd>#0B64DD</dd>
+            <dt>Hover bg</dt><dd>#0855BD</dd>
+            <dt>Text</dt><dd>#FFFFFF</dd>
+            <dt>Border</dt><dd>1px solid #0B64DD</dd>
+            <dt>Height</dt><dd>40px</dd>
+            <dt>Radius</dt><dd>var(--r-4)</dd>
+          </dl>
+        </div>
+      </div>
+
+      <h3 class="docs__h3">Icon variants</h3>
+      <p class="docs__section-desc" style="margin-top: -8px;">Any button variant can carry a 16 px icon left, right, or on both sides. The button's flex layout handles spacing via the existing 4 px gap — no extra CSS needed. Icons use <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">stroke="currentColor"</code> so they inherit the button text color automatically. Sourced from Figma node 994:3326 (Components — Designers Area).</p>
+      <div class="pair">
+        <div>
+          <div class="stage">
+            <span class="stage__label">Trailing icon (most common for forward CTAs)</span>
+            <a href="#" class="btn--primary">
+              <span>Start free trial</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#" class="btn--primary">
+              <span>Open in new tab</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <div class="stage">
+            <span class="stage__label">Leading icon</span>
+            <a href="#" class="btn--primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Add project</span>
+            </a>
+          </div>
+          <div class="stage">
+            <span class="stage__label">Both sides (matches the Figma default)</span>
+            <a href="#" class="btn--primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              <span>Button</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <pre class="code"><span class="comm">&lt;!-- Trailing icon (arrow-right) --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#"</span> <span class="attr">class</span>=<span class="str">"btn--primary"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;span&gt;</span>Start free trial<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;svg</span> <span class="attr">width</span>=<span class="str">"16"</span> <span class="attr">height</span>=<span class="str">"16"</span> <span class="attr">viewBox</span>=<span class="str">"0 0 24 24"</span> <span class="attr">stroke</span>=<span class="str">"currentColor"</span> <span class="attr">aria-hidden</span>=<span class="str">"true"</span><span class="tag">&gt;</span>…<span class="tag">&lt;/svg&gt;</span>
+<span class="tag">&lt;/a&gt;</span>
+
+<span class="comm">&lt;!-- Leading icon: put the SVG first --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#"</span> <span class="attr">class</span>=<span class="str">"btn--primary"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;svg&gt;</span>…<span class="tag">&lt;/svg&gt;</span>
+  <span class="tag">&lt;span&gt;</span>Add project<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;/a&gt;</span></pre>
+        </div>
+        <div class="spec">
+          <dl>
+            <dt>Icon size</dt><dd>16 × 16 px</dd>
+            <dt>Gap to label</dt><dd>4 px (inherits from button)</dd>
+            <dt>Color</dt><dd>currentColor (inherits text color)</dd>
+            <dt>aria-hidden</dt><dd>true (label conveys meaning)</dd>
+            <dt>Position</dt><dd>before or after the &lt;span&gt; label</dd>
+          </dl>
+        </div>
+      </div>
+
+      <h3 class="docs__h3">Secondary</h3>
+      <div class="pair">
+        <div>
+          <div class="stage">
+            <span class="stage__label">Default · Hover</span>
+            <a href="#" class="btn--secondary">Contact sales</a>
+            <a href="#" class="btn--secondary" style="background: rgba(11, 100, 221, 0.06);">Contact sales</a>
+          </div>
+          <pre class="code"><span class="comm">&lt;!-- Secondary button --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#"</span> <span class="attr">class</span>=<span class="str">"btn--secondary"</span><span class="tag">&gt;</span>Contact sales<span class="tag">&lt;/a&gt;</span></pre>
+        </div>
+        <div class="spec">
+          <dl>
+            <dt>Background</dt><dd>transparent</dd>
+            <dt>Hover bg</dt><dd>rgba(11,100,221,.06)</dd>
+            <dt>Text</dt><dd>#0B64DD</dd>
+            <dt>Border</dt><dd>1px solid #0B64DD</dd>
+            <dt>Height</dt><dd>40px</dd>
+            <dt>Radius</dt><dd>var(--r-4)</dd>
+          </dl>
+        </div>
+      </div>
+
+      <h3 class="docs__h3">Tertiary</h3>
+      <div class="pair">
+        <div>
+          <div class="stage">
+            <span class="stage__label">Default · Hover</span>
+            <a href="#" class="btn--tertiary">Read more</a>
+            <a href="#" class="btn--tertiary" style="color: #0855BD;">Read more</a>
+          </div>
+          <pre class="code"><span class="comm">&lt;!-- Tertiary (text link) button --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#"</span> <span class="attr">class</span>=<span class="str">"btn--tertiary"</span><span class="tag">&gt;</span>Read more<span class="tag">&lt;/a&gt;</span></pre>
+        </div>
+        <div class="spec">
+          <dl>
+            <dt>Background</dt><dd>none</dd>
+            <dt>Text</dt><dd>#0B64DD (underline)</dd>
+            <dt>Hover text</dt><dd>#0855BD</dd>
+            <dt>Padding</dt><dd>0 4px</dd>
+            <dt>Height</dt><dd>auto</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         COMPONENTS — CHIPS
+         ========================================================= -->
+    <section class="docs__section" id="chips">
+      <h2 class="docs__h2">Chips / Tags</h2>
+      <p class="docs__section-desc">A small pill used for article metadata, filters, and tags. Two flavors: a static label (use <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">&lt;span&gt;</code>) and a clickable filter link (use <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">&lt;a&gt;</code>) which gets hover state automatically.</p>
+
+      <div class="pair">
+        <div>
+          <div class="stage">
+            <span class="stage__label">Default</span>
+            <span class="chip">Lucene</span>
+            <span class="chip">How To</span>
+            <span class="chip">Vector Database</span>
+            <span class="chip">Generative AI</span>
+          </div>
+          <div class="stage">
+            <span class="stage__label">Clickable (hover state)</span>
+            <a href="#" class="chip">Lucene</a>
+            <a href="#" class="chip" style="background: #E1E6EB;">Lucene (hovered)</a>
+          </div>
+          <pre class="code"><span class="comm">&lt;!-- Static label --&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"chip"</span><span class="tag">&gt;</span>Lucene<span class="tag">&lt;/span&gt;</span>
+
+<span class="comm">&lt;!-- Clickable filter --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#tag/lucene"</span> <span class="attr">class</span>=<span class="str">"chip"</span><span class="tag">&gt;</span>Lucene<span class="tag">&lt;/a&gt;</span></pre>
+        </div>
+        <div class="spec">
+          <dl>
+            <dt>Background</dt><dd>#EDF1F5</dd>
+            <dt>Hover bg</dt><dd>#E1E6EB</dd>
+            <dt>Text</dt><dd>#404152</dd>
+            <dt>Border</dt><dd>rgba(29,31,38,.2)</dd>
+            <dt>Height</dt><dd>28px</dd>
+            <dt>Padding</dt><dd>4px 10px</dd>
+            <dt>Font weight</dt><dd>500 (Medium)</dd>
+            <dt>Font size</dt><dd>14px</dd>
+            <dt>Radius</dt><dd>var(--r-full)</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         Divider
+         ========================================================= -->
+    <section class="docs__section" id="divider">
+      <h2 class="docs__h2">Divider</h2>
+      <p class="docs__section-desc">A 1 px horizontal hairline used to separate sections, list items, or rows. Sourced from Figma node 1629:1125 (Components — Designers Area). Renders with the migrated <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">--border</code> token (<code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">#C4C7D1</code>); the Figma binding uses a semi-transparent overlay (<code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">rgba(29,31,38,0.2)</code>) which renders virtually identically on white surfaces.</p>
+
+      <div class="pair">
+        <div>
+          <div class="stage">
+            <span class="stage__label">Default</span>
+            <hr class="divider" />
+          </div>
+          <div class="stage">
+            <span class="stage__label">Inside a card-like container</span>
+            <div style="width: 100%; padding: 16px; border: 1px solid var(--border); border-radius: var(--r-8); background: var(--white);">
+              <p style="margin: 0 0 12px 0; font-size: 14px; color: var(--gray-dark);">Above the rule</p>
+              <hr class="divider" />
+              <p style="margin: 12px 0 0 0; font-size: 14px; color: var(--gray-dark);">Below the rule</p>
+            </div>
+          </div>
+          <pre class="code"><span class="comm">&lt;!-- As a semantic horizontal rule (recommended) --&gt;</span>
+<span class="tag">&lt;hr</span> <span class="attr">class</span>=<span class="str">"divider"</span> <span class="tag">/&gt;</span>
+
+<span class="comm">&lt;!-- Or as a styled div when an &lt;hr&gt; isn't appropriate --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"divider"</span><span class="tag">&gt;&lt;/div&gt;</span></pre>
+        </div>
+        <div class="spec">
+          <dl>
+            <dt>Height</dt><dd>1 px</dd>
+            <dt>Width</dt><dd>100%</dd>
+            <dt>Color</dt><dd>var(--border) → #C4C7D1</dd>
+            <dt>Figma binding</dt><dd>rgba(29,31,38,.2)</dd>
+            <dt>Border</dt><dd>none (override &lt;hr&gt; default)</dd>
+            <dt>Margin</dt><dd>0 (caller controls vertical spacing)</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         Breadcrumb
+         ========================================================= -->
+    <section class="docs__section" id="breadcrumb">
+      <h2 class="docs__h2">Breadcrumb</h2>
+      <p class="docs__section-desc">A horizontal trail of navigation items separated by slashes. Non-current items render in <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">--text-subtlest</code>; the current/final item uses <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">--brand-elastic-blue</code>. Inter Medium 14 / 21. Sourced from Figma node 1676:4101 (Components — Designers Area). Note: the existing <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">.article-hero__crumb</code> / <code style="font-family: var(--font-mono); font-size: 13px; color: var(--blue);">.tutorial-hero__crumb</code> patterns in the prototype use a different visual language (mono uppercase) and are <em>not</em> the same component.</p>
+
+      <div class="pair">
+        <div>
+          <div class="stage">
+            <span class="stage__label">Three items, last is current</span>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="#" class="breadcrumb__item">Text Link</a>
+              <span class="breadcrumb__sep" aria-hidden="true">/</span>
+              <a href="#" class="breadcrumb__item">Text Link</a>
+              <span class="breadcrumb__sep" aria-hidden="true">/</span>
+              <span class="breadcrumb__item breadcrumb__item--current" aria-current="page">Text Link</span>
+            </nav>
+          </div>
+          <div class="stage">
+            <span class="stage__label">Two items</span>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="#" class="breadcrumb__item">Search Labs</a>
+              <span class="breadcrumb__sep" aria-hidden="true">/</span>
+              <span class="breadcrumb__item breadcrumb__item--current" aria-current="page">Tutorials</span>
+            </nav>
+          </div>
+          <div class="stage">
+            <span class="stage__label">With a trailing icon on the last item</span>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="#" class="breadcrumb__item">Text Link</a>
+              <span class="breadcrumb__sep" aria-hidden="true">/</span>
+              <span class="breadcrumb__item breadcrumb__item--current" aria-current="page">
+                <span>Text Link</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              </span>
+            </nav>
+          </div>
+          <pre class="code"><span class="tag">&lt;nav</span> <span class="attr">class</span>=<span class="str">"breadcrumb"</span> <span class="attr">aria-label</span>=<span class="str">"Breadcrumb"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#"</span> <span class="attr">class</span>=<span class="str">"breadcrumb__item"</span><span class="tag">&gt;</span>Text Link<span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"breadcrumb__sep"</span> <span class="attr">aria-hidden</span>=<span class="str">"true"</span><span class="tag">&gt;</span>/<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#"</span> <span class="attr">class</span>=<span class="str">"breadcrumb__item"</span><span class="tag">&gt;</span>Text Link<span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"breadcrumb__sep"</span> <span class="attr">aria-hidden</span>=<span class="str">"true"</span><span class="tag">&gt;</span>/<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"breadcrumb__item breadcrumb__item--current"</span> <span class="attr">aria-current</span>=<span class="str">"page"</span><span class="tag">&gt;</span>Text Link<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;/nav&gt;</span></pre>
+        </div>
+        <div class="spec">
+          <dl>
+            <dt>Container</dt><dd>inline-flex, gap 4px</dd>
+            <dt>Font</dt><dd>Inter Medium 14px / 21px (label/L)</dd>
+            <dt>Item color</dt><dd>var(--text-subtlest) → #474B57</dd>
+            <dt>Current color</dt><dd>var(--brand-elastic-blue) → #0B64DD</dd>
+            <dt>Separator</dt><dd>literal "/" in a span, aria-hidden</dd>
+            <dt>Hover</dt><dd>underline on &lt;a&gt; items only</dd>
+            <dt>Optional icons</dt><dd>16 px SVG, leading or trailing, with currentColor</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
