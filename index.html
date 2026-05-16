@@ -93,7 +93,7 @@
     padding: 0;
     list-style: none;
   }
-  .topnav__list { gap: 4px; }
+  .topnav__list { gap: var(--s-4); }
   .subnav__list { gap: var(--s-24); }
   .topnav__link,
   .subnav__link {
@@ -143,7 +143,7 @@
     position: absolute;
     left: 0; right: 0; bottom: -1px;
     height: 2px;
-    background: #0B64DD;
+    background: var(--brand-elastic-blue);
   }
   /* Disabled (Company categories): non-interactive, slightly muted */
   .subnav__link.is-disabled {
@@ -207,7 +207,7 @@
   .hero__layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 420px;
-    gap: 64px;
+    gap: var(--s-64);
     align-items: start;
     position: relative;
   }
@@ -279,6 +279,9 @@
     flex-direction: column;
     gap: var(--s-16);
   }
+  .popular__item:first-child {
+    padding-top: 0;
+  }
   .popular__item + .popular__item {
     border-top: 1px solid var(--border);
   }
@@ -319,7 +322,7 @@
     font-weight: var(--fw-bold);
     font-size: var(--fs-link);
     line-height: var(--lh-link);
-    color: #0B64DD;
+    color: var(--brand-elastic-blue);
     margin-top: var(--s-8);
   }
   .view-all:hover { text-decoration: underline; }
@@ -329,8 +332,8 @@
 /* Popular sidebar — SHARE block at the bottom (replaces the long
      Follow / Subscribe buttons). Reuses the sidebar__share visual. */
   .popular__share {
-    margin-top: 24px;
-    padding-top: 24px;
+    margin-top: var(--s-24);
+    padding-top: var(--s-24);
     border-top: 1px solid var(--border);
   }
   .popular__share-label {
@@ -340,11 +343,11 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--gray);
-    margin: 0 0 12px 0;
+    margin: 0 0 var(--s-12) 0;
   }
   .popular__share-icons {
     display: flex;
-    gap: 16px;
+    gap: var(--s-16);
   }
   .popular__share-icons a {
     color: var(--gray);
@@ -370,7 +373,7 @@
     margin: 0 auto;
     padding: var(--s-32) var(--s-64) 0;
     display: flex;
-    gap: 32px;
+    gap: var(--s-32);
     background: var(--white);
     position: sticky;
     top: 0;
@@ -392,7 +395,7 @@
   }
   .blog-tabs button:hover:not(.is-active) { color: var(--gray-dark); }
   .blog-tabs button.is-active {
-    color: #0B64DD;
+    color: var(--brand-elastic-blue);
     font-weight: var(--fw-bold);
   }
   .blog-tabs button.is-active::after {
@@ -400,7 +403,7 @@
     position: absolute;
     left: 0; right: 0; bottom: -1px;
     height: 2px;
-    background: #0B64DD;
+    background: var(--brand-elastic-blue);
   }
 
   /* Series grid — 3 columns, simple image + title + description card */
@@ -430,7 +433,7 @@
   }
   .series-card__image {
     aspect-ratio: 16 / 10;
-    background: linear-gradient(135deg, #E6ECF3 0%, #F1F4F8 100%);
+    background: linear-gradient(135deg, #E6ECF3 0%, var(--surface-neutral-1-5) 100%);
   }
   .series-card__body {
     padding: var(--s-24);
@@ -442,7 +445,7 @@
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
     font-size: 20px;
-    line-height: 1.3;
+    line-height: var(--lh-h4);
     color: var(--gray-dark);
     margin: 0;
     letter-spacing: -0.005em;
@@ -451,7 +454,7 @@
   .series-card__desc {
     font-family: var(--font-body);
     font-size: 15px;
-    line-height: 1.55;
+    line-height: var(--lh-lead);
     color: var(--gray-dark);
     margin: 0;
   }
@@ -460,7 +463,7 @@
   }
   @media (max-width: 720px) {
     .series-grid { grid-template-columns: 1fr; }
-    .blog-tabs { padding: var(--s-24) var(--s-24) 0; gap: 24px; }
+    .blog-tabs { padding: var(--s-24) var(--s-24) 0; gap: var(--s-24); }
     .blog-tabs button { font-size: 16px; }
   }
 
@@ -492,7 +495,7 @@
   }
   .glossary-alphabet button:hover:not([disabled]) { color: var(--gray-dark); }
   .glossary-alphabet button.is-active {
-    color: #0B64DD;
+    color: var(--brand-elastic-blue);
     font-weight: var(--fw-bold);
     position: relative;
   }
@@ -501,7 +504,7 @@
     position: absolute;
     left: -4px; right: -4px; bottom: -17px;
     height: 2px;
-    background: #0B64DD;
+    background: var(--brand-elastic-blue);
   }
   .glossary-alphabet button[disabled] {
     color: #D4DAE5;
@@ -519,16 +522,16 @@
   .glossary-letter-card {
     width: 80px;
     height: 80px;
-    background: #F1F4F8;
-    border-radius: 8px;
+    background: var(--surface-neutral-1-5);
+    border-radius: var(--r-8);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
     font-size: 40px;
-    color: #0B64DD;
-    margin-bottom: 24px;
+    color: var(--brand-elastic-blue);
+    margin-bottom: var(--s-24);
   }
   .glossary-toc {
     display: flex;
@@ -545,7 +548,7 @@
     cursor: pointer;
     transition: color 0.15s ease;
   }
-  .glossary-toc a:hover { color: #0B64DD; }
+  .glossary-toc a:hover { color: var(--brand-elastic-blue); }
   .glossary-defs {
     display: flex;
     flex-direction: column;
@@ -557,9 +560,9 @@
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
     font-size: 26px;
-    line-height: 1.3;
+    line-height: var(--lh-h4);
     color: var(--gray-dark);
-    margin: 0 0 12px 0;
+    margin: 0 0 var(--s-12) 0;
     letter-spacing: -0.005em;
   }
   .glossary-term__def {
@@ -574,8 +577,8 @@
     font-style: italic;
   }
   @media (max-width: 900px) {
-    .glossary-body { grid-template-columns: 1fr; gap: 32px; padding: var(--s-32) var(--s-24); }
-    .glossary-alphabet { padding: var(--s-24); gap: 16px; }
+    .glossary-body { grid-template-columns: 1fr; gap: var(--s-32); padding: var(--s-32) var(--s-24); }
+    .glossary-alphabet { padding: var(--s-24); gap: var(--s-16); }
     .glossary-alphabet button { font-size: 16px; }
   }
 
@@ -585,7 +588,7 @@
     border-radius: 14px;
     padding: 28px 36px;
     margin: var(--s-48) 0 var(--s-48) 0;
-    color: #FFFFFF;
+    color: var(--white);
     display: flex;
     align-items: center;
     gap: 40px;
@@ -605,23 +608,23 @@
   .home-callout__text {
     font-family: var(--font-body);
     font-size: 15px;
-    line-height: 1.55;
-    color: #FFFFFF;
+    line-height: var(--lh-lead);
+    color: var(--white);
     margin: 0;
   }
   .home-callout__text strong {
     font-weight: var(--fw-bold);
   }
   @media (max-width: 900px) {
-    .home-callout { flex-direction: column; align-items: flex-start; gap: 22px; padding: 24px; }
+    .home-callout { flex-direction: column; align-items: flex-start; gap: 22px; padding: var(--s-24); }
   }
 
   /* ============ Sidebar Quick Start callout (teal→blue gradient card) ============ */
   .qs-callout {
     background: linear-gradient(155deg, #6EBFB5 0%, #4A8EBF 55%, #5B6FE0 100%);
-    border-radius: 10px;
-    padding: 26px 24px;
-    color: #FFFFFF;
+    border-radius: var(--r-10);
+    padding: 26px var(--s-24);
+    color: var(--white);
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -633,8 +636,8 @@
   .qs-callout__text {
     font-family: var(--font-body);
     font-size: 14px;
-    line-height: 1.55;
-    color: #FFFFFF;
+    line-height: var(--lh-lead);
+    color: var(--white);
     margin: 0;
   }
   .qs-callout__text strong { font-weight: var(--fw-bold); }
@@ -644,7 +647,7 @@
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
     font-size: 26px;
-    line-height: 1.3;
+    line-height: var(--lh-h4);
     color: var(--gray-dark);
     margin: 0 0 var(--s-32) 0;
     letter-spacing: -0.005em;
@@ -709,7 +712,7 @@
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
     font-size: var(--fs-h4);
-    line-height: 1.2;
+    line-height: var(--lh-h2);
     color: var(--gray-dark);
     margin: 0;
     letter-spacing: -0.005em;
@@ -845,7 +848,7 @@
 
   /* === Trial banner (top section, rounded top corners) === */
   .trial-banner {
-    background: #1C1E23;
+    background: var(--text-default);
     border-radius: 48px 48px 0 0;
     padding: 96px 0;
     position: relative;
@@ -854,11 +857,11 @@
   .trial-banner__inner {
     max-width: 1512px;
     margin: 0 auto;
-    padding: 0 64px;
+    padding: 0 var(--s-64);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 32px;
+    gap: var(--s-32);
     text-align: center;
     position: relative;
     z-index: 2;
@@ -867,7 +870,7 @@
     font-family: var(--font-heading);
     font-weight: var(--fw-regular);
     font-size: 48px;
-    line-height: 1.2;
+    line-height: var(--lh-h2);
     letter-spacing: -0.04em;
     color: var(--white);
     margin: 0;
@@ -877,7 +880,7 @@
   }
   .trial-banner__actions {
     display: flex;
-    gap: 16px;
+    gap: var(--s-16);
     align-items: center;
     position: relative;
     z-index: 2;
@@ -902,7 +905,7 @@
     right: -60px; top: -40px;
     width: 380px; height: 280px;
     background:
-      radial-gradient(circle at 80% 20%, #0B64DD 0 6px, transparent 7px),
+      radial-gradient(circle at 80% 20%, var(--brand-elastic-blue) 0 6px, transparent 7px),
       radial-gradient(circle at 95% 70%, #FF1493 0 5px, transparent 6px),
       radial-gradient(circle at 40% 90%, #FED10A 0 8px, transparent 9px);
     opacity: 0.6;
@@ -919,30 +922,30 @@
 
   /* === Main footer (dark section under banner) === */
   .footer__main {
-    background: #1C1E23;
-    padding: 96px 0 48px;
+    background: var(--text-default);
+    padding: 96px 0 var(--s-48);
     position: relative;
   }
   .footer__main-inner {
     max-width: 1512px;
     margin: 0 auto;
-    padding: 0 64px;
+    padding: 0 var(--s-64);
   }
   .footer__grid {
     display: grid;
     grid-template-columns: 320px repeat(4, 1fr);
-    gap: 48px;
-    margin-bottom: 64px;
+    gap: var(--s-48);
+    margin-bottom: var(--s-64);
   }
   .footer__brand-col {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: var(--s-32);
   }
   .footer__brand {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--s-12);
   }
   .footer__brand-mark {
     width: 40px;
@@ -967,11 +970,11 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--white);
-    margin: 0 0 12px 0;
+    margin: 0 0 var(--s-12) 0;
   }
   .footer__socials {
     display: flex;
-    gap: 16px;
+    gap: var(--s-16);
   }
   .footer__socials a {
     width: 32px;
@@ -986,19 +989,19 @@
   .footer__socials a:hover { color: var(--white); }
   .footer__socials svg { width: 22px; height: 22px; }
   .footer__socials a.footer__socials--gh {
-    border: 2px solid #343741;
+    border: 2px solid var(--surface-neutral-dark-1);
     border-radius: 6px;
   }
 
   .footer__col {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: var(--s-32);
   }
   .footer__col-group {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--s-16);
   }
   .footer__col-label {
     font-family: var(--font-body);
@@ -1019,7 +1022,7 @@
     font-family: var(--font-body);
     font-weight: var(--fw-regular);
     font-size: 16px;
-    line-height: 1.5;
+    line-height: var(--lh-body);
     color: #D4DAE5;
     text-decoration: none;
     transition: color 0.15s ease;
@@ -1028,25 +1031,25 @@
 
   /* === Footer legal row === */
   .footer__legal {
-    border-top: 1px solid #343741;
-    padding-top: 32px;
+    border-top: 1px solid var(--surface-neutral-dark-1);
+    padding-top: var(--s-32);
     display: grid;
     grid-template-columns: 320px 1fr;
-    gap: 48px;
+    gap: var(--s-48);
   }
   .footer__legal-meta {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--s-12);
   }
   .footer__legal-links {
     display: flex;
-    gap: 12px;
+    gap: var(--s-12);
   }
   .footer__legal-links a {
     font-family: var(--font-body);
     font-size: 12px;
-    line-height: 1.3;
+    line-height: var(--lh-h4);
     color: #D4DAE5;
     text-decoration: underline;
     transition: color 0.15s ease;
@@ -1055,14 +1058,14 @@
   .footer__legal-copy {
     font-family: var(--font-body);
     font-size: 12px;
-    line-height: 1.3;
+    line-height: var(--lh-h4);
     color: #D4DAE5;
     margin: 0;
   }
   .footer__legal-trademark {
     font-family: var(--font-body);
     font-size: 12px;
-    line-height: 1.3;
+    line-height: var(--lh-h4);
     color: #D4DAE5;
     margin: 0;
     max-width: 720px;
@@ -1074,22 +1077,22 @@
 
   /* Responsive */
   @media (max-width: 1200px) {
-    .trial-banner { padding: 64px 0; }
-    .trial-banner__inner { padding: 0 48px; }
+    .trial-banner { padding: var(--s-64) 0; }
+    .trial-banner__inner { padding: 0 var(--s-48); }
     .trial-banner__title { font-size: 40px; }
-    .footer__main { padding: 64px 0 32px; }
-    .footer__main-inner { padding: 0 48px; }
-    .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer__main { padding: var(--s-64) 0 var(--s-32); }
+    .footer__main-inner { padding: 0 var(--s-48); }
+    .footer__grid { grid-template-columns: 1fr 1fr; gap: var(--s-32); }
     .footer__brand-col { grid-column: 1 / -1; }
     .footer__legal { grid-template-columns: 1fr; }
   }
   @media (max-width: 720px) {
-    .trial-banner { padding: 48px 0; border-radius: 24px 24px 0 0; }
-    .trial-banner__inner { padding: 0 24px; }
-    .trial-banner__title { font-size: 28px; }
+    .trial-banner { padding: var(--s-48) 0; border-radius: 24px 24px 0 0; }
+    .trial-banner__inner { padding: 0 var(--s-24); }
+    .trial-banner__title { font-size: var(--fs-title-l); }
     .trial-banner__actions { flex-direction: column; width: 100%; }
-    .footer__main { padding: 48px 0 24px; }
-    .footer__main-inner { padding: 0 24px; }
+    .footer__main { padding: var(--s-48) 0 var(--s-24); }
+    .footer__main-inner { padding: 0 var(--s-24); }
     .footer__grid { grid-template-columns: 1fr; }
     .footer__legal-links { flex-wrap: wrap; }
   }
@@ -1108,7 +1111,7 @@
   }
   @media (max-width: 720px) {
     .container { padding-left: var(--s-24); padding-right: var(--s-24); }
-    .hero__title { font-size: 28px; }
+    .hero__title { font-size: var(--fs-title-l); }
     .featured__image { height: 240px; }
     .featured__title { font-size: 20px; }
       .cat-cards { grid-template-columns: 1fr; }
@@ -1134,7 +1137,7 @@
     font-weight: var(--fw-bold);
     font-size: var(--fs-xs);
     letter-spacing: 0.02em;
-    color: #0B64DD;
+    color: var(--brand-elastic-blue);
     margin: 0 0 var(--s-16) 0;
   }
   .article-hero__crumb a { color: inherit; text-decoration: none; }
@@ -1150,8 +1153,8 @@
   }
   .article-hero__intro {
     font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.55;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-lead);
     color: var(--gray-dark);
     margin: 0 0 var(--s-24) 0;
     max-width: 720px;
@@ -1233,8 +1236,8 @@
   .article__main h2 {
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
-    font-size: 28px;
-    line-height: 1.3;
+    font-size: var(--fs-title-l);
+    line-height: var(--lh-h4);
     color: var(--gray-dark);
     margin: var(--s-48) 0 var(--s-16) 0;
     letter-spacing: -0.005em;
@@ -1259,24 +1262,24 @@
   .article__main li code {
     font-family: var(--font-mono);
     font-size: 0.92em;
-    background: #F1F4F8;
+    background: var(--surface-neutral-1-5);
     padding: 2px 6px;
-    border-radius: 4px;
-    color: #1F2937;
+    border-radius: var(--r-4);
+    color: var(--text-default);
     border: 1px solid rgba(28, 30, 35, 0.06);
   }
   .article__main pre {
     position: relative;
     margin: var(--s-20, 20px) 0;
     padding: var(--s-20, 20px) var(--s-24);
-    background: #F1F4F8;
+    background: var(--surface-neutral-1-5);
     border: 1px solid var(--border);
     border-radius: 6px;
     overflow-x: auto;
     font-family: var(--font-mono);
     font-size: 14px;
-    line-height: 1.6;
-    color: #1F2937;
+    line-height: var(--lh-small);
+    color: var(--text-default);
   }
   .article__main pre code {
     font-family: inherit;
@@ -1355,7 +1358,7 @@
     font-family: var(--font-body);
     font-weight: var(--fw-medium);
     font-size: var(--fs-small);
-    line-height: 1.5;
+    line-height: var(--lh-small);
     color: var(--gray-dark);
     padding-left: var(--s-4);
   }
@@ -1404,31 +1407,41 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--s-32);
   }
+  /* =========================================================
+     Blog card (.related-card)
+     ---------------------------------------------------------
+     Used on blog landing, tag pages, article-related sections,
+     and author pages. Bare layout — no card chrome, sits
+     directly on page background. Image gets its own hairline
+     border and radius. Body is flush with the grid; vertical
+     gap handled by flex gap between elements.
+
+     Redesigned Session 24 (2026-05-15) to match the Elastic
+     Search Labs Blogs reference. Class name kept as
+     .related-card to avoid sweeping ~1100 HTML class refs.
+     ========================================================= */
   .related-card {
-    background: var(--white);
-    border-radius: var(--r-10);
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+    background: transparent;
     display: flex;
     flex-direction: column;
+    gap: var(--s-16);
   }
-  /* Blank placeholder image for related cards */
   .related-card__image {
-    height: 180px;
+    height: 260px;
     background: var(--gray-lightest);
-    border-bottom: 1px solid var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--r-8);
   }
   .related-card__body {
-    padding: var(--s-24);
     display: flex;
     flex-direction: column;
-    gap: var(--s-12);
+    gap: var(--s-16);
     flex: 1;
   }
   .related-card__meta {
     display: flex;
     align-items: center;
-    gap: var(--s-12);
+    gap: var(--s-16);
     flex-wrap: wrap;
   }
   .related-card__date {
@@ -1441,61 +1454,52 @@
   .related-card__title {
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
-    font-size: var(--fs-h5);
-    line-height: 1.3;
+    font-size: var(--fs-h4);
+    line-height: var(--lh-h4);
     color: var(--gray-dark);
     margin: 0;
   }
   .related-card__title a:hover { text-decoration: underline; }
-  /* Card hover feedback — applies on tag pages and feed grids */
-  .blog-grid .related-card,
-  .author-articles__grid .related-card,
-  .all-articles__grid .related-card,
-  .integrations-grid .related-card,
-  .related__grid .related-card {
-    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-  }
-  .blog-grid .related-card:hover,
-  .author-articles__grid .related-card:hover,
-  .all-articles__grid .related-card:hover,
-  .integrations-grid .related-card:hover,
-  .related__grid .related-card:hover {
-    border-color: #B6C7E0;
-    box-shadow: 0 6px 18px rgba(28, 30, 35, 0.06);
-    transform: translateY(-1px);
-  }
   .related-card__desc {
     font-family: var(--font-body);
     font-size: var(--fs-small);
-    line-height: 1.5;
+    line-height: var(--lh-small);
     color: var(--gray-dark);
     margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .related-card__author {
     display: flex;
     align-items: center;
-    gap: var(--s-8);
+    gap: var(--s-12);
     margin-top: auto;
-    padding-top: var(--s-12);
   }
   .related-card__avatar {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     border-radius: var(--r-full);
-    background: linear-gradient(135deg, #c5cdde, #6b7891);
-    color: white;
-    display: grid;
-    place-items: center;
-    font-size: 10px;
+    background: var(--surface-neutral-1-5);
+    color: var(--text-subtler);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-small);
     font-weight: var(--fw-bold);
     flex-shrink: 0;
   }
   .related-card__author-name {
     font-family: var(--font-body);
-    font-size: var(--fs-xs);
-    font-weight: var(--fw-semibold);
-    color: var(--gray-dark);
+    font-size: var(--fs-small);
+    color: var(--text-subtler);
   }
+  .related-card__author-name a {
+    color: var(--gray-dark);
+    font-weight: var(--fw-semibold);
+  }
+  .related-card__author-name a:hover { text-decoration: underline; }
 
 
   /* =========================================================
@@ -1529,14 +1533,31 @@
   }
   .subpage-hero__subtitle {
     font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.55;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-lead);
     color: var(--gray-dark);
     margin: 0;
     max-width: 760px;
   }
 
   .subpage-hero__cta { margin-top: var(--s-16); align-self: flex-start; }
+
+  /* Active filters tray — sits in the subpage hero, below the title.
+     Used on #obs-filter and #sec-filter views to show which tags
+     the user "clicked on" to land on this page. Each chip is a
+     .chip--input with a (visually-only) X button. */
+  .active-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--s-12);
+    margin-top: var(--s-24);
+  }
+  .active-filters__label {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    color: var(--gray);
+  }
   .subpage-body {
     padding: var(--s-64) 0;
     background: var(--white);
@@ -1603,12 +1624,12 @@
     font-size: var(--fs-link);
     line-height: 1.4;
     color: var(--gray-dark);
-    margin: 0 0 4px 0;
+    margin: 0 0 var(--s-4) 0;
   }
   .tutorial-card__desc {
     font-family: var(--font-body);
     font-size: var(--fs-small);
-    line-height: 1.5;
+    line-height: var(--lh-small);
     color: var(--gray);
     margin: 0;
   }
@@ -1698,55 +1719,70 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--s-24);
   }
+  /* =========================================================
+     Integration Card
+     ---------------------------------------------------------
+     Same chrome as the homepage cat-card (white bg, bordered,
+     rounded, padded) but with a 2-column layout: icon on the
+     left, title + description + category stacked on the right.
+     The right-column items share their left edge with each
+     other; the icon does NOT inline with the title.
+     ========================================================= */
   .integration-card {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--r-8);
     padding: var(--s-24);
     display: flex;
-    flex-direction: column;
-    gap: var(--s-12);
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--s-16);
     transition: border-color 0.15s ease;
   }
   .integration-card:hover { border-color: var(--gray-medium); }
   .integration-card:hover .integration-card__name { text-decoration: underline; }
-  .integration-card__head {
-    display: flex;
-    align-items: center;
-    gap: var(--s-12);
-  }
   .integration-card__logo {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-neutral-1-5);
+    color: var(--brand-elastic-blue);
     border-radius: var(--r-4);
-    display: grid;
-    place-items: center;
-    background: var(--gray-lightest);
-    color: var(--gray-dark);
-    font-weight: var(--fw-bold);
     flex-shrink: 0;
-    font-size: 16px;
+    font-size: 13px;
+    font-weight: var(--fw-bold);
+    letter-spacing: 0;
+  }
+  .integration-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-8);
+    flex: 1;
+    min-width: 0;
   }
   .integration-card__name {
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
-    font-size: 18px;
+    font-size: var(--fs-h5);
+    line-height: var(--lh-h5);
     color: var(--gray-dark);
     margin: 0;
   }
   .integration-card__desc {
     font-family: var(--font-body);
     font-size: var(--fs-small);
-    line-height: 1.55;
+    line-height: var(--lh-small);
     color: var(--gray);
     margin: 0;
-    min-height: 70px;
   }
   .integration-card__category {
     font-family: var(--font-mono);
     font-weight: var(--fw-bold);
-    font-size: 11px;
+    font-size: var(--fs-label-s);
     letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: var(--gray);
     margin: 0;
     margin-top: var(--s-8);
@@ -1785,7 +1821,7 @@
   }
   .blog-categories__list a:hover { text-decoration: underline; }
   .blog-categories__list a.is-active {
-    color: #0B64DD;
+    color: var(--brand-elastic-blue);
     font-weight: var(--fw-bold);
   }
 
@@ -1795,7 +1831,7 @@
   .side-nav {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: var(--s-32);
     font-family: var(--font-body);
     color: var(--gray-dark);
   }
@@ -1807,7 +1843,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--gray);
-    margin: 0 0 16px 0;
+    margin: 0 0 var(--s-16) 0;
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1833,7 +1869,7 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--s-16);
   }
   .side-nav__item { position: relative; }
 
@@ -1868,8 +1904,8 @@
 
   .side-nav__sublist {
     list-style: none;
-    margin: 12px 0 0 0;
-    padding: 0 0 0 16px;
+    margin: var(--s-12) 0 0 0;
+    padding: 0 0 0 var(--s-16);
     display: none;
     flex-direction: column;
     gap: 10px;
@@ -1890,15 +1926,15 @@
   }
 
   .side-nav__subscribe {
-    margin-top: 32px;
+    margin-top: var(--s-32);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--s-8);
     height: 40px;
     padding: 0 18px;
-    border: 1px solid #0B64DD;
+    border: 1px solid var(--brand-elastic-blue);
     border-radius: 6px;
-    color: #0B64DD;
+    color: var(--brand-elastic-blue);
     font-family: var(--font-body);
     font-weight: var(--fw-semibold);
     font-size: 15px;
@@ -1918,10 +1954,10 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 12px;
+    padding: var(--s-8) var(--s-12);
     background: transparent;
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: var(--r-4);
     font-family: var(--font-body);
     font-size: 13px;
     font-weight: var(--fw-medium);
@@ -1931,7 +1967,7 @@
     transition: background 0.15s ease;
     white-space: nowrap;
   }
-  .side-nav__btn:hover { background: #F1F4F8; }
+  .side-nav__btn:hover { background: var(--surface-neutral-1-5); }
   .side-nav__btn svg { width: 14px; height: 14px; color: var(--gray); flex-shrink: 0; }
   .side-nav__subscribe svg { width: 14px; height: 14px; }
 
@@ -1996,7 +2032,7 @@
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
     font-size: var(--fs-h4);
-    line-height: 1.3;
+    line-height: var(--lh-h4);
     color: var(--gray-dark);
     margin: 0;
   }
@@ -2004,7 +2040,7 @@
   .blog-feed__featured-desc {
     font-family: var(--font-body);
     font-size: var(--fs-small);
-    line-height: 1.5;
+    line-height: var(--lh-small);
     color: var(--gray);
     margin: 0;
   }
@@ -2042,7 +2078,6 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--s-24);
   }
-  .blog-grid .related-card { box-shadow: none; border: 1px solid var(--border); }
 
   /* Tag page (3-column author article grid) */
   .author-articles {
@@ -2054,7 +2089,7 @@
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
     font-size: var(--fs-h4);
-    line-height: 1.3;
+    line-height: var(--lh-h4);
     color: var(--gray-dark);
     margin: 0;
   }
@@ -2072,24 +2107,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: var(--s-24);
   }
-  .integrations-grid .related-card {
-    box-shadow: none;
-    border: 1px solid var(--border);
-  }
-  .integrations-grid .related-card__image {
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #F1F4F8;
-  }
-  .integration-card__initials {
-    font-family: var(--font-mono);
-    font-weight: var(--fw-bold);
-    font-size: 28px;
-    letter-spacing: 0.04em;
-    color: var(--gray);
-  }
+  /* Integrations page grid */
   @media (max-width: 900px) {
     .integrations-grid { grid-template-columns: 1fr; }
   }
@@ -2108,15 +2126,15 @@
   .integration-detail__lead {
     font-family: var(--font-body);
     font-size: 17px;
-    line-height: 1.6;
+    line-height: var(--lh-small);
     color: var(--gray-dark);
     margin: 0 0 var(--s-32) 0;
   }
   .integration-detail__video {
     aspect-ratio: 16 / 9;
     width: 100%;
-    background: linear-gradient(135deg, #F1F4F8 0%, #E8ECF1 100%);
-    border-radius: 8px;
+    background: linear-gradient(135deg, var(--surface-neutral-1-5) 0%, #E8ECF1 100%);
+    border-radius: var(--r-8);
     overflow: hidden;
     position: relative;
     margin: 0 0 var(--s-32) 0;
@@ -2135,13 +2153,13 @@
     left: 16px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--s-12);
   }
   .integration-detail__video-logo {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #FFFFFF;
+    background: var(--white);
     flex-shrink: 0;
   }
   .integration-detail__video-title {
@@ -2178,7 +2196,7 @@
     color: var(--gray-dark);
     background: rgba(255,255,255,0.9);
     padding: 6px 10px;
-    border-radius: 4px;
+    border-radius: var(--r-4);
     font-size: 12px;
     font-weight: var(--fw-medium);
   }
@@ -2188,7 +2206,7 @@
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
     font-size: 26px;
-    line-height: 1.3;
+    line-height: var(--lh-h4);
     color: var(--gray-dark);
     margin: var(--s-48) 0 var(--s-16);
     letter-spacing: -0.005em;
@@ -2204,7 +2222,7 @@
   .integration-detail__bloglist li {
     font-family: var(--font-body);
     font-size: 16px;
-    line-height: 1.5;
+    line-height: var(--lh-body);
     color: var(--gray-dark);
   }
   .integration-detail__bloglist a {
@@ -2230,10 +2248,10 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 12px;
+    padding: var(--s-8) var(--s-12);
     background: transparent;
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: var(--r-4);
     font-family: var(--font-body);
     font-size: 13px;
     font-weight: var(--fw-medium);
@@ -2241,12 +2259,8 @@
     cursor: pointer;
     transition: background 0.15s ease;
   }
-  .integration-detail__action:hover { background: #F1F4F8; }
+  .integration-detail__action:hover { background: var(--surface-neutral-1-5); }
   .integration-detail__action svg { width: 14px; height: 14px; color: var(--gray); }
-  .author-articles__grid .related-card {
-    box-shadow: none;
-    border: 1px solid var(--border);
-  }
   @media (max-width: 900px) {
     .author-articles__grid { grid-template-columns: 1fr; }
   }
@@ -2316,7 +2330,7 @@
     font-weight: var(--fw-bold);
     font-size: var(--fs-xs);
     letter-spacing: 0.04em;
-    color: #0B64DD;
+    color: var(--brand-elastic-blue);
     margin: 0 0 var(--s-16) 0;
     text-transform: uppercase;
   }
@@ -2337,8 +2351,8 @@
   }
   .tutorial-hero__subtitle {
     font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.55;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-lead);
     color: var(--gray-dark);
     margin: 0;
     max-width: 800px;
@@ -2404,8 +2418,8 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--gray);
-    margin-top: 12px;
-    padding-bottom: 4px;
+    margin-top: var(--s-12);
+    padding-bottom: var(--s-4);
   }
   .tutorial-toc__group:first-child { margin-top: 0; }
   .tutorial-toc__sub {
@@ -2447,14 +2461,14 @@
     font-family: var(--font-heading);
     font-weight: var(--fw-bold);
     font-size: 26px;
-    line-height: 1.3;
+    line-height: var(--lh-h4);
     color: var(--gray-dark);
     margin: var(--s-48) 0 var(--s-16);
     letter-spacing: -0.005em;
   }
   /* ============ Code syntax highlighting (documentation palette) ============
      Inspired by VS Code light theme. All token colors verified ≥4.5:1 contrast
-     on the code background #F1F4F8 (AA pass).
+     on the code background var(--surface-neutral-1-5) (AA pass).
      ====================================================================== */
   .tok-keyword  { color: #0033B3; font-weight: var(--fw-medium); }   /* pip, import, from, def — 11.7:1 */
   .tok-string   { color: #067D17; }                      /* 'foo', "bar" — 5.4:1 */
@@ -2472,16 +2486,16 @@
   .tutorial-content code {
     font-family: var(--font-mono);
     font-size: 0.92em;
-    background: #F1F4F8;
+    background: var(--surface-neutral-1-5);
     padding: 2px 6px;
-    border-radius: 4px;
-    color: #1F2937;
+    border-radius: var(--r-4);
+    color: var(--text-default);
     border: 1px solid rgba(28, 30, 35, 0.06);
   }
   /* Block code — same color family, lifted with a thin border so it
      reads as a distinct surface inside long-form prose. */
   .tutorial-content pre {
-    background: #F1F4F8;
+    background: var(--surface-neutral-1-5);
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: var(--s-20, 20px) var(--s-24);
@@ -2494,8 +2508,8 @@
     border: none;
     padding: 0;
     font-size: 14px;
-    line-height: 1.6;
-    color: #1F2937;
+    line-height: var(--lh-small);
+    color: var(--text-default);
   }
   .tutorial-content pre::after {
     content: "";
@@ -2521,7 +2535,7 @@
     padding: var(--s-16) var(--s-24);
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--s-4);
     color: var(--gray-dark);
   }
   .tutorial-pagination > a + a,
@@ -2579,7 +2593,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--s-32);
   }
-  .all-articles__grid .related-card { box-shadow: none; border: 1px solid var(--border); }
   @media (max-width: 1100px) {
     .all-articles__grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -2617,7 +2630,6 @@
     grid-template-columns: repeat(2, 1fr);
     gap: var(--s-32);
   }
-  .obs-filter-grid .related-card { box-shadow: none; border: 1px solid var(--border); }
   .obs-filter-sidebar { display: flex; flex-direction: column; gap: var(--s-12); }
   .obs-filter-sidebar__label {
     font-family: var(--font-mono);
@@ -2692,8 +2704,8 @@
   }
   .author-hero__subtitle {
     font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.55;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-lead);
     color: var(--gray);
     margin: 0;
   }
@@ -2706,26 +2718,51 @@
 
 
   /* ============ Per-lab background tints (subtle differentiation) ============ */
-  body { background: #FFFFFF; transition: background-color 0.2s ease; }
-  body[data-lab="elasticsearch"] { background: #FFFFFF; }
+  body { background: var(--white); transition: background-color 0.2s ease; }
+  body[data-lab="elasticsearch"] { background: var(--white); }
   body[data-lab="observability"] { background: #F2F5F9; }
   body[data-lab="security"]      { background: #FAF7F2; }
-  body[data-lab="company"]       { background: #FFFFFF; }
+  body[data-lab="company"]       { background: var(--white); }
 
   /* Home-page hero shades — subtle gray differentiation per lab (all readable with black text) */
-  #page-home .hero                                       { background: #F2F4F7; }
-  #page-observability [data-obs-section="obs-home"] .hero{ background: #E8ECF1; }
-  #page-security .hero                                   { background: #EBEFF3; }
+  /* ─────────────────────────────────────────────────────────
+     Section-themed hero backgrounds — bind page-views to tokens
+     declared in design-system.css. Both .hero (home variant)
+     and .subpage-hero (tag / filter / article / author variants)
+     within the same section share one color, so the visual
+     identity stays consistent as the user navigates.
+     ───────────────────────────────────────────────────────── */
+  #page-home .hero,
+  #page-home .subpage-hero                                  { background: var(--hero-bg-home); }
+
+  #page-observability .hero,
+  #page-obs-article .hero,
+  #page-obs-article .subpage-hero,
+  #page-obs-filter .subpage-hero,
+  #page-obs-author .subpage-hero,
+  #page-obs-author .hero                                    { background: var(--hero-bg-obs); }
+
+  #page-security .hero,
+  #page-sec-article .hero,
+  #page-sec-article .subpage-hero,
+  #page-sec-filter .subpage-hero,
+  #page-sec-author .subpage-hero,
+  #page-sec-author .hero                                    { background: var(--hero-bg-sec); }
+
+  #page-company .hero,
+  #page-company .subpage-hero,
+  #page-comp-article .hero,
+  #page-comp-article .subpage-hero                          { background: var(--hero-bg-news); }
 
     /* ============ Global Elastic Navigation (top-of-page on every route) ============ */
-    .gnav { background: #fff; width: 100%; font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #1C1E23; }
+    .gnav { background: #fff; width: 100%; font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--text-default); }
 
     .gnav__upper { border-bottom: 1px solid #F5F7FA; }
     .gnav__upper-inner,
     .gnav__primary-inner {
       max-width: 1512px;
       margin: 0 auto;
-      padding: 0 64px;
+      padding: 0 var(--s-64);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -2733,85 +2770,85 @@
     .gnav__upper-inner { padding-top: 10px; padding-bottom: 10px; }
     .gnav__primary-inner { height: 84px; }
 
-    .gnav__marquee { display: flex; align-items: center; gap: 16px; }
+    .gnav__marquee { display: flex; align-items: center; gap: var(--s-16); }
     .gnav__badge {
       display: inline-flex; align-items: center; gap: 2px;
-      padding: 1px 4px; border-radius: 2px;
-      font-size: 12px; font-weight: var(--fw-medium); line-height: 1.3;
+      padding: 1px var(--s-4); border-radius: 2px;
+      font-size: 12px; font-weight: var(--fw-medium); line-height: var(--lh-h4);
       color: #DD0A73;
     }
     .gnav__badge-icon { width: 10px; height: 10px; color: #DD0A73; flex-shrink: 0; }
     .gnav__marquee-text {
-      font-size: 14px; line-height: 1.3;
-      background: linear-gradient(to right, #343741 0%, #343741 86%, var(--gray) 100%);
+      font-size: 14px; line-height: var(--lh-h4);
+      background: linear-gradient(to right, var(--surface-neutral-dark-1) 0%, var(--surface-neutral-dark-1) 86%, var(--gray) 100%);
       -webkit-background-clip: text; background-clip: text;
       color: transparent;
     }
     .gnav__marquee-cta {
-      font-size: 14px; font-weight: var(--fw-semibold); color: #0B64DD;
-      text-decoration: none; line-height: 1.3;
+      font-size: 14px; font-weight: var(--fw-semibold); color: var(--brand-elastic-blue);
+      text-decoration: none; line-height: var(--lh-h4);
     }
     .gnav__marquee-cta:hover { text-decoration: underline; }
 
-    .gnav__util { display: flex; align-items: center; gap: 16px; }
+    .gnav__util { display: flex; align-items: center; gap: var(--s-16); }
     .gnav__util-link {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-size: 14px; color: #343741; line-height: 1.3;
+      display: inline-flex; align-items: center; gap: var(--s-4);
+      font-size: 14px; color: var(--surface-neutral-dark-1); line-height: var(--lh-h4);
       text-decoration: none;
     }
-    .gnav__util-link:hover { color: #0B64DD; }
+    .gnav__util-link:hover { color: var(--brand-elastic-blue); }
     .gnav__util-icon { width: 16px; height: 16px; color: currentColor; flex-shrink: 0; }
     .gnav__util-divider { width: 1px; height: 18px; background: var(--gray); opacity: 0.4; }
 
     .gnav__brand-area { display: flex; align-items: center; gap: 40px; }
     .gnav__brand {
-      display: inline-flex; align-items: center; gap: 8px;
-      text-decoration: none; color: #1C1E23;
+      display: inline-flex; align-items: center; gap: var(--s-8);
+      text-decoration: none; color: var(--text-default);
     }
     .gnav__brand-placeholder {
       width: 40px; height: 40px; border-radius: 6px;
       background: #E6ECF3;
       display: inline-block; flex-shrink: 0;
     }
-    .gnav__links { display: flex; align-items: center; gap: 24px; }
+    .gnav__links { display: flex; align-items: center; gap: var(--s-24); }
     .gnav__link {
       display: inline-flex; align-items: center;
       height: 40px;
       font-family: 'Mier B', 'Inter', system-ui, sans-serif;
-      font-weight: var(--fw-bold); font-size: 16px; line-height: 1.3;
-      color: #1C1E23; text-decoration: none;
+      font-weight: var(--fw-bold); font-size: 16px; line-height: var(--lh-h4);
+      color: var(--text-default); text-decoration: none;
     }
-    .gnav__link:hover { color: #0B64DD; }
+    .gnav__link:hover { color: var(--brand-elastic-blue); }
 
-    .gnav__actions { display: flex; align-items: center; gap: 12px; }
+    .gnav__actions { display: flex; align-items: center; gap: var(--s-12); }
     .gnav__search {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex; align-items: center; gap: var(--s-8);
       height: 40px; padding: 0 20px 0 14px;
       background: #fff;
       border: 2px solid #F04E98;
       border-radius: 22px;
-      color: #1C1E23; text-decoration: none;
+      color: var(--text-default); text-decoration: none;
       font-family: 'Mier B', 'Inter', system-ui, sans-serif;
       font-weight: var(--fw-bold); font-size: 16px; line-height: 1;
     }
     .gnav__search:hover { background: #FFF5F9; }
-    .gnav__search-icon { width: 18px; height: 18px; color: #1C1E23; flex-shrink: 0; }
+    .gnav__search-icon { width: 18px; height: 18px; color: var(--text-default); flex-shrink: 0; }
 
 
     @media (max-width: 1200px) {
       .gnav__upper-inner,
-      .gnav__primary-inner { padding-left: 32px; padding-right: 32px; }
+      .gnav__primary-inner { padding-left: var(--s-32); padding-right: var(--s-32); }
     }
     @media (max-width: 900px) {
       .gnav__upper-inner,
-      .gnav__primary-inner { padding-left: 24px; padding-right: 24px; }
+      .gnav__primary-inner { padding-left: var(--s-24); padding-right: var(--s-24); }
       .gnav__primary-inner { height: 64px; }
       .gnav__links { display: none; }
-      .gnav__brand-area { gap: 16px; }
+      .gnav__brand-area { gap: var(--s-16); }
       .gnav__util-link:nth-child(-n+3) { display: none; }
       .gnav__util-divider { display: none; }
       .gnav__search span { display: none; }
-      .gnav__search { padding: 0 12px; }
+      .gnav__search { padding: 0 var(--s-12); }
       .gnav__marquee-text { display: none; }
     }
 </style>
@@ -2978,7 +3015,7 @@
 
           <div class="featured__body">
             <div class="featured__meta">
-              <span class="chip">Lucene</span>
+              <span class="chip">Lorem</span>
               <span class="featured__date">May 01, 2023</span>
             </div>
             <h2 class="featured__title"><a href="#article">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do</a></h2>
@@ -2991,7 +3028,7 @@
             <li class="popular__item">
               <div class="popular__head">
                 <div class="popular__chips">
-                  <span class="chip">Lucene</span>
+                  <span class="chip">Ipsum</span>
                 </div>
                 <span class="popular__date">May 01, 2023</span>
               </div>
@@ -3003,8 +3040,8 @@
             <li class="popular__item">
               <div class="popular__head">
                 <div class="popular__chips">
-                  <span class="chip">How To</span>
-                  <span class="chip">Lucene</span>
+                  <span class="chip">Lorem</span>
+                  <span class="chip">Ipsum</span>
                 </div>
                 <span class="popular__date">May 01, 2023</span>
               </div>
@@ -3016,8 +3053,8 @@
             <li class="popular__item">
               <div class="popular__head">
                 <div class="popular__chips">
-                  <span class="chip">How To</span>
-                  <span class="chip">Lucene</span>
+                  <span class="chip">Lorem</span>
+                  <span class="chip">Ipsum</span>
                 </div>
                 <span class="popular__date">May 01, 2023</span>
               </div>
@@ -3095,25 +3132,25 @@
           <div class="explore-row">
             <a href="#article" class="explore-row__link">Excepteur sint occaecat cupidatat</a>
             <div class="explore-row__chips">
-              <span class="chip">Lucene</span>
-              <span class="chip">Integrations</span>
+              <span class="chip">Lorem</span>
+              <span class="chip">Ipsum</span>
               <span class="chip">+1</span>
             </div>
           </div>
           <div class="explore-row">
             <a href="#article" class="explore-row__link">Voluptate velit esse cillum dolore</a>
-            <div class="explore-row__chips"><span class="chip">Integrations</span></div>
+            <div class="explore-row__chips"><span class="chip">Lorem</span></div>
           </div>
           <div class="explore-row">
             <a href="#article" class="explore-row__link">Pariatur sunt in culpa</a>
             <div class="explore-row__chips">
-              <span class="chip">Generative AI</span>
-              <span class="chip">Lucene</span>
+              <span class="chip">Ipsum</span>
+              <span class="chip">Lorem</span>
             </div>
           </div>
           <div class="explore-row">
             <a href="#article" class="explore-row__link">Officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus</a>
-            <div class="explore-row__chips"><span class="chip">Generative AI</span></div>
+            <div class="explore-row__chips"><span class="chip">Ipsum</span></div>
           </div>
         </div>
       </div>
@@ -3177,7 +3214,7 @@
               <div class="featured__image" role="img" aria-label="Featured article image placeholder"></div>
               <div class="featured__body">
                 <div class="featured__meta">
-                  <a href="#obs-filter" class="chip">APM</a>
+                  <a href="#obs-filter" class="chip">Dolor</a>
                   <span class="featured__date">May 01, 2023</span>
                 </div>
                 <h2 class="featured__title"><a href="#obs-article">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h2>
@@ -3188,7 +3225,7 @@
               <ul class="popular__list">
                 <li class="popular__item">
                   <div class="popular__head">
-                    <div class="popular__chips"><a href="#obs-filter" class="chip">Logs</a></div>
+                    <div class="popular__chips"><a href="#obs-filter" class="chip">Sit</a></div>
                     <span class="popular__date">May 01, 2023</span>
                   </div>
                   <h3 class="popular__title">
@@ -3197,7 +3234,7 @@
                 </li>
                 <li class="popular__item">
                   <div class="popular__head">
-                    <div class="popular__chips"><a href="#obs-filter" class="chip">Metrics</a><a href="#obs-filter" class="chip">How To</a></div>
+                    <div class="popular__chips"><a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a></div>
                     <span class="popular__date">May 01, 2023</span>
                   </div>
                   <h3 class="popular__title">
@@ -3206,7 +3243,7 @@
                 </li>
                 <li class="popular__item">
                   <div class="popular__head">
-                    <div class="popular__chips"><a href="#obs-filter" class="chip">APM</a><a href="#obs-filter" class="chip">Tracing</a></div>
+                    <div class="popular__chips"><a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a></div>
                     <span class="popular__date">May 01, 2023</span>
                   </div>
                   <h3 class="popular__title">
@@ -3215,20 +3252,11 @@
                 </li>
                 <li class="popular__item">
                   <div class="popular__head">
-                    <div class="popular__chips"><a href="#obs-filter" class="chip">APM</a></div>
+                    <div class="popular__chips"><a href="#obs-filter" class="chip">Dolor</a></div>
                     <span class="popular__date">May 01, 2023</span>
                   </div>
                   <h3 class="popular__title">
                     <a href="#obs-article">Sed ut perspiciatis unde omnis iste natus error sit</a>
-                  </h3>
-                </li>
-                <li class="popular__item">
-                  <div class="popular__head">
-                    <div class="popular__chips"><a href="#obs-filter" class="chip">Logs</a><a href="#obs-filter" class="chip">How To</a></div>
-                    <span class="popular__date">May 01, 2023</span>
-                  </div>
-                  <h3 class="popular__title">
-                    <a href="#obs-article">Nemo enim ipsam voluptatem quia voluptas sit aspernatur</a>
                   </h3>
                 </li>
               </ul>
@@ -3260,7 +3288,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">APM</a><a href="#obs-filter" class="chip">ML</a>
+              <a href="#obs-filter" class="chip">Sit</a><a href="#obs-filter" class="chip">Dolor</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h3>
@@ -3275,7 +3303,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Logs</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Sit</a><a href="#obs-filter" class="chip">Dolor</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Sed do eiusmod tempor incididunt ut labore</a></h3>
@@ -3290,7 +3318,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Synthetics</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Sit</a><a href="#obs-filter" class="chip">Dolor</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Ut enim ad minim veniam quis nostrud exercitation</a></h3>
@@ -3305,7 +3333,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Metrics</a>
+              <a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Duis aute irure dolor in reprehenderit voluptate velit</a></h3>
@@ -3320,7 +3348,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">APM</a><a href="#obs-filter" class="chip">Tracing</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Excepteur sint occaecat cupidatat non proident sunt in</a></h3>
@@ -3335,7 +3363,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Infrastructure</a><a href="#obs-filter" class="chip">Logs</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Officia deserunt mollit anim id est laborum</a></h3>
@@ -3350,7 +3378,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Uptime</a><a href="#obs-filter" class="chip">Synthetics</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Voluptate velit esse cillum dolore eu fugiat</a></h3>
@@ -3365,7 +3393,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Logs</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Sed ut perspiciatis unde omnis iste natus</a></h3>
@@ -3380,7 +3408,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">APM</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Nemo enim ipsam voluptatem quia voluptas</a></h3>
@@ -3465,7 +3493,7 @@
           <article class="blog-feed__featured">
             <div class="blog-feed__featured-content">
               <div class="blog-feed__featured-meta">
-                <a href="#obs-filter" class="chip">Lorem</a>
+                <a href="#obs-filter" class="chip">Dolor</a>
                 <span class="related-card__date">May 01, 2026</span>
               </div>
               <h3 class="blog-feed__featured-title"><a href="#obs-article">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h3>
@@ -3486,7 +3514,7 @@
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#obs-filter" class="chip">Lorem</a>
+                  <a href="#obs-filter" class="chip">Sit</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#obs-article">Ut enim ad minim veniam quis nostrud</a></h3>
@@ -3502,7 +3530,7 @@
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#obs-filter" class="chip">Ipsum</a>
+                  <a href="#obs-filter" class="chip">Dolor</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#obs-article">Duis aute irure dolor in reprehenderit</a></h3>
@@ -3518,7 +3546,7 @@
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#obs-filter" class="chip">Dolor</a>
+                  <a href="#obs-filter" class="chip">Sit</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#obs-article">Excepteur sint occaecat cupidatat non proident</a></h3>
@@ -3534,7 +3562,7 @@
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#obs-filter" class="chip">Sit</a>
+                  <a href="#obs-filter" class="chip">Dolor</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#obs-article">Sed ut perspiciatis unde omnis iste natus error</a></h3>
@@ -3636,7 +3664,7 @@
               <div class="examples-group__card">
           <div class="examples-row">
             <a href="#example:prompts-prompt-library" class="examples-row__link">Prompt library</a>
-            <div class="examples-row__chips"><span class="chip">Generative AI</span></div>
+            <div class="examples-row__chips"><span class="chip">Lorem</span></div>
           </div>
               </div>
             </div>
@@ -3645,23 +3673,23 @@
               <div class="examples-group__card">
           <div class="examples-row">
             <a href="#example:apps-load-embedding-model" class="examples-row__link">Duis aute irure dolor in reprehenderit</a>
-            <div class="examples-row__chips"><span class="chip">Lucene</span><span class="chip">Integrations</span></div>
+            <div class="examples-row__chips"><span class="chip">Ipsum</span><span class="chip">Lorem</span></div>
           </div>
           <div class="examples-row">
             <a href="#example:apps-chatbot-rag" class="examples-row__link">Excepteur sint occaecat cupidatat</a>
-            <div class="examples-row__chips"><span class="chip">Lucene</span><span class="chip">Integrations</span><span class="chip">+1</span></div>
+            <div class="examples-row__chips"><span class="chip">Ipsum</span><span class="chip">Lorem</span><span class="chip">+1</span></div>
           </div>
           <div class="examples-row">
             <a href="#example:apps-openai-embeddings" class="examples-row__link">Voluptate velit esse cillum dolore</a>
-            <div class="examples-row__chips"><span class="chip">Generative AI</span><span class="chip">Lucene</span></div>
+            <div class="examples-row__chips"><span class="chip">Ipsum</span><span class="chip">Lorem</span></div>
           </div>
           <div class="examples-row">
             <a href="#example:apps-relevance-workbench" class="examples-row__link">Pariatur sunt in culpa</a>
-            <div class="examples-row__chips"><span class="chip">Generative AI</span></div>
+            <div class="examples-row__chips"><span class="chip">Ipsum</span></div>
           </div>
           <div class="examples-row">
             <a href="#example:apps-chunking-documents" class="examples-row__link">Officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus</a>
-            <div class="examples-row__chips"><span class="chip">Generative AI</span></div>
+            <div class="examples-row__chips"><span class="chip">Lorem</span></div>
           </div>
               </div>
             </div>
@@ -3670,23 +3698,23 @@
               <div class="examples-group__card">
           <div class="examples-row">
             <a href="#example:notebooks-load-embedding-model" class="examples-row__link">Duis aute irure dolor in reprehenderit</a>
-            <div class="examples-row__chips"><span class="chip">Integrations</span></div>
+            <div class="examples-row__chips"><span class="chip">Ipsum</span></div>
           </div>
           <div class="examples-row">
             <a href="#example:notebooks-chatbot-rag" class="examples-row__link">Excepteur sint occaecat cupidatat</a>
-            <div class="examples-row__chips"><span class="chip">Lucene</span></div>
+            <div class="examples-row__chips"><span class="chip">Lorem</span></div>
           </div>
           <div class="examples-row">
             <a href="#example:notebooks-openai-embeddings" class="examples-row__link">Voluptate velit esse cillum dolore</a>
-            <div class="examples-row__chips"><span class="chip">Lucene</span></div>
+            <div class="examples-row__chips"><span class="chip">Ipsum</span></div>
           </div>
           <div class="examples-row">
             <a href="#example:notebooks-relevance-workbench" class="examples-row__link">Pariatur sunt in culpa</a>
-            <div class="examples-row__chips"><span class="chip">Generative AI</span></div>
+            <div class="examples-row__chips"><span class="chip">Lorem</span></div>
           </div>
           <div class="examples-row">
             <a href="#example:notebooks-chunking-documents" class="examples-row__link">Officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus</a>
-            <div class="examples-row__chips"><span class="chip">Generative AI</span></div>
+            <div class="examples-row__chips"><span class="chip">Ipsum</span></div>
           </div>
               </div>
             </div>
@@ -3743,220 +3771,148 @@
         </aside>
         <main>
           <div class="integrations-grid">
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Alibaba Cloud logo placeholder">
-                <span class="integration-card__initials">AC</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Alibaba Cloud</a></h3>
-                <p class="related-card__desc">A complete suite of cloud services including elastic computing, database, storage, security, big data analytics, ML and AI services.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Alibaba Cloud</a></h3>
+                <p class="integration-card__desc">A complete suite of cloud services including elastic computing, database, storage, security, big data analytics, ML and AI services.</p>
+                <p class="integration-card__category">Model providers</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Amazon Bedrock logo placeholder">
-                <span class="integration-card__initials">AB</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Amazon Bedrock</a></h3>
-                <p class="related-card__desc">Fully managed service offering high-performing foundation models from leading AI companies through a single API.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Amazon Bedrock</a></h3>
+                <p class="integration-card__desc">Fully managed service offering high-performing foundation models from leading AI companies through a single API.</p>
+                <p class="integration-card__category">Cloud services</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Anthropic logo placeholder">
-                <span class="integration-card__initials">A</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Anthropic</a></h3>
-                <p class="related-card__desc">AI lab whose research and products put safety at the frontier. Maker of Claude, a family of foundational AI models for enterprise.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Anthropic</a></h3>
+                <p class="integration-card__desc">AI lab whose research and products put safety at the frontier. Maker of Claude, a family of foundational AI models for enterprise.</p>
+                <p class="integration-card__category">Model providers</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Cohere logo placeholder">
-                <span class="integration-card__initials">C</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Cohere</a></h3>
-                <p class="related-card__desc">Builds models for use cases such as embeddings and reranking, used by companies to build production-ready, scalable AI applications.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Cohere</a></h3>
+                <p class="integration-card__desc">Builds models for use cases such as embeddings and reranking, used by companies to build production-ready, scalable AI applications.</p>
+                <p class="integration-card__category">Cloud services</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Google Vertex AI logo placeholder">
-                <span class="integration-card__initials">G</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Google Vertex AI</a></h3>
-                <p class="related-card__desc">Fully-managed AI development platform with access to Vertex AI Studio, Agent Builder, and 150+ foundation models including Gemini.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Google Vertex AI</a></h3>
+                <p class="integration-card__desc">Fully-managed AI development platform with access to Vertex AI Studio, Agent Builder, and 150+ foundation models including Gemini.</p>
+                <p class="integration-card__category">Model providers</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Hugging Face logo placeholder">
-                <span class="integration-card__initials">HF</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Hugging Face</a></h3>
-                <p class="related-card__desc">Open-source hub for AI/ML models and tools. Seamlessly integrate with Elasticsearch via the transformers library.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Hugging Face</a></h3>
+                <p class="integration-card__desc">Open-source hub for AI/ML models and tools. Seamlessly integrate with Elasticsearch via the transformers library.</p>
+                <p class="integration-card__category">Cloud services</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="IBM watsonx logo placeholder">
-                <span class="integration-card__initials">IB</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">IBM watsonx</a></h3>
-                <p class="related-card__desc">AI and data platform offering machine learning models for text embeddings and text completion, designed to scale AI impact.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">IBM watsonx</a></h3>
+                <p class="integration-card__desc">AI and data platform offering machine learning models for text embeddings and text completion, designed to scale AI impact.</p>
+                <p class="integration-card__category">Model providers</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Jina AI logo placeholder">
-                <span class="integration-card__initials">JA</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Jina AI</a></h3>
-                <p class="related-card__desc">Develops compact, high-performance Search Foundation models for multilingual text and image processing.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Jina AI</a></h3>
+                <p class="integration-card__desc">Develops compact, high-performance Search Foundation models for multilingual text and image processing.</p>
+                <p class="integration-card__category">Cloud services</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Microsoft Azure AI logo placeholder">
-                <span class="integration-card__initials">MA</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Microsoft Azure AI</a></h3>
-                <p class="related-card__desc">REST API access to OpenAI models plus a catalog of hundreds of models from Mistral, Meta, Cohere, Nvidia, and Hugging Face.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Microsoft Azure AI</a></h3>
+                <p class="integration-card__desc">REST API access to OpenAI models plus a catalog of hundreds of models from Mistral, Meta, Cohere, Nvidia, and Hugging Face.</p>
+                <p class="integration-card__category">Model providers</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Mistral logo placeholder">
-                <span class="integration-card__initials">M</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Mistral</a></h3>
-                <p class="related-card__desc">Open, efficient, helpful and trustworthy AI models through ground-breaking innovations in foundation model research.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Mistral</a></h3>
+                <p class="integration-card__desc">Open, efficient, helpful and trustworthy AI models through ground-breaking innovations in foundation model research.</p>
+                <p class="integration-card__category">Cloud services</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="OpenAI logo placeholder">
-                <span class="integration-card__initials">OA</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">OpenAI</a></h3>
-                <p class="related-card__desc">Integrate OpenAI with Elastic by leveraging embedding models, the chat completions API, or other advanced integration options.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">OpenAI</a></h3>
+                <p class="integration-card__desc">Integrate OpenAI with Elastic by leveraging embedding models, the chat completions API, or other advanced integration options.</p>
+                <p class="integration-card__category">Model providers</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Red Hat logo placeholder">
-                <span class="integration-card__initials">RH</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Red Hat</a></h3>
-                <p class="related-card__desc">Openshift AI is a flexible AI/ML platform enabling enterprises to create and deliver AI-enabled applications at scale across hybrid clouds.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Red Hat</a></h3>
+                <p class="integration-card__desc">Openshift AI is a flexible AI/ML platform enabling enterprises to create and deliver AI-enabled applications at scale across hybrid clouds.</p>
+                <p class="integration-card__category">Cloud services</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="NVIDIA logo placeholder">
-                <span class="integration-card__initials">NV</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">Model Providers</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">NVIDIA</a></h3>
-                <p class="related-card__desc">cuVS for GPU-accelerated vector search and NVIDIA NIM for self-hosted GPU-accelerated inferencing microservices.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">NVIDIA</a></h3>
+                <p class="integration-card__desc">cuVS for GPU-accelerated vector search and NVIDIA NIM for self-hosted GPU-accelerated inferencing microservices.</p>
+                <p class="integration-card__category">Model providers</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="LangChain logo placeholder">
-                <span class="integration-card__initials">LC</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">RAG Development Frameworks</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">LangChain</a></h3>
-                <p class="related-card__desc">Use LangChain ElasticsearchStore, self-query retriever, ElasticsearchRetriever, and more for retrieval-augmented generation workflows.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">LangChain</a></h3>
+                <p class="integration-card__desc">Use LangChain ElasticsearchStore, self-query retriever, ElasticsearchRetriever, and more for retrieval-augmented generation workflows.</p>
+                <p class="integration-card__category">Cloud services</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="LlamaIndex logo placeholder">
-                <span class="integration-card__initials">LI</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">RAG Development Frameworks</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">LlamaIndex</a></h3>
-                <p class="related-card__desc">Use LlamaIndex with Elastic as a data source, embedding model, vector store, index store, KV store, or document store.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">LlamaIndex</a></h3>
+                <p class="integration-card__desc">Use LlamaIndex with Elastic as a data source, embedding model, vector store, index store, KV store, or document store.</p>
+                <p class="integration-card__category">Model providers</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Aryn logo placeholder">
-                <span class="integration-card__initials">AR</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">RAG Development Frameworks</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Aryn</a></h3>
-                <p class="related-card__desc">AI-powered document parsing and ETL for complex, unstructured data. Process PDFs, HTML, presentations and 30+ file formats.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Aryn</a></h3>
+                <p class="integration-card__desc">AI-powered document parsing and ETL for complex, unstructured data. Process PDFs, HTML, presentations and 30+ file formats.</p>
+                <p class="integration-card__category">Cloud services</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Unstructured.io logo placeholder">
-                <span class="integration-card__initials">UN</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">ETL and Data Prep</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Unstructured.io</a></h3>
-                <p class="related-card__desc">Tools to ingest and preprocess unstructured documents for Retrieval Augmented Generation and Fine Tuning workflows.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Unstructured.io</a></h3>
+                <p class="integration-card__desc">Tools to ingest and preprocess unstructured documents for Retrieval Augmented Generation and Fine Tuning workflows.</p>
+                <p class="integration-card__category">Model providers</p>
               </div>
             </article>
-            <article class="related-card">
-              <div class="related-card__image" role="img" aria-label="Vectorize.io logo placeholder">
-                <span class="integration-card__initials">VE</span>
-              </div>
-              <div class="related-card__body">
-                <div class="related-card__meta">
-                  <a href="javascript:void(0)" class="chip">ETL and Data Prep</a>
-                </div>
-                <h3 class="related-card__title"><a href="#integration">Vectorize.io</a></h3>
-                <p class="related-card__desc">Optimize your RAG workflows with Elasticsearch as the vector database. Built for production-grade retrieval pipelines.</p>
+            <article class="integration-card">
+              <span class="integration-card__logo" aria-hidden="true"></span>
+              <div class="integration-card__body">
+                <h3 class="integration-card__name"><a href="#integration">Vectorize.io</a></h3>
+                <p class="integration-card__desc">Optimize your RAG workflows with Elasticsearch as the vector database. Built for production-grade retrieval pipelines.</p>
+                <p class="integration-card__category">Cloud services</p>
               </div>
             </article>
           </div>
@@ -4113,7 +4069,7 @@
           <article class="blog-feed__featured">
             <div class="blog-feed__featured-content">
               <div class="blog-feed__featured-meta">
-                <span class="chip">Lucene</span>
+                <span class="chip">Lorem</span>
                 <span class="related-card__date">May 01, 2023</span>
               </div>
               <h3 class="blog-feed__featured-title"><a href="#article">Speeding Up Multi-graph Vector Search</a></h3>
@@ -4132,7 +4088,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <span class="chip">Integrations</span><span class="chip">How To</span>
+              <span class="chip">Ipsum</span><span class="chip">Lorem</span>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -4147,7 +4103,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <span class="chip">Vector Search</span><span class="chip">How To</span>
+              <span class="chip">Ipsum</span><span class="chip">Lorem</span>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -4162,7 +4118,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <span class="chip">Vector Search</span><span class="chip">How To</span>
+              <span class="chip">Ipsum</span><span class="chip">Lorem</span>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -4177,7 +4133,7 @@
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <span class="chip">Integrations</span><span class="chip">How To</span>
+              <span class="chip">Ipsum</span><span class="chip">Lorem</span>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -4769,7 +4725,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <h1 class="article-hero__title">Stateless &mdash; your new state of find with&nbsp;Elasticsearch</h1>
         <p class="article-hero__intro">Discover this future of stateless Elasticsearch. Learn how we're investing in building a new fully cloud native architecture to push the boundaries of scale and speed.</p>
         <div class="article-hero__tags">
-          <span class="chip">ML Research</span>
+          <span class="chip">Lorem</span>
         </div>
         <div class="article-hero__byline">
           <div class="avatar-stack" aria-hidden="true">
@@ -4858,8 +4814,8 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
         <div class="related-card__body">
           <div class="related-card__meta">
-            <span class="chip">Integrations</span>
-            <span class="chip">How To</span>
+            <span class="chip">Ipsum</span>
+            <span class="chip">Lorem</span>
             <span class="related-card__date">May 01, 2023</span>
           </div>
           <h3 class="related-card__title"><a href="#article">From ES|QL to Pandas dataframes in&nbsp;Python</a></h3>
@@ -4875,8 +4831,8 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
         <div class="related-card__body">
           <div class="related-card__meta">
-            <span class="chip">Vector</span>
-            <span class="chip">How To</span>
+            <span class="chip">Ipsum</span>
+            <span class="chip">Lorem</span>
             <span class="related-card__date">May 01, 2023</span>
           </div>
           <h3 class="related-card__title"><a href="#article">Vector Similarity Computations — ludicrous speed</a></h3>
@@ -4892,8 +4848,8 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
         <div class="related-card__body">
           <div class="related-card__meta">
-            <span class="chip">Lucene</span>
-            <span class="chip">How To</span>
+            <span class="chip">Ipsum</span>
+            <span class="chip">Lorem</span>
             <span class="related-card__date">May 01, 2023</span>
           </div>
           <h3 class="related-card__title"><a href="#article">Improving text expansion performance using token&nbsp;pruning</a></h3>
@@ -4918,7 +4874,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <h1 class="article-hero__title">Evaluating search relevance part 2 &mdash; Phi-3 as relevance judge</h1>
         <p class="article-hero__intro">Discover this future of stateless Elasticsearch. Learn how we're investing in building a new fully cloud native architecture to push the boundaries of scale and speed.</p>
         <div class="article-hero__tags">
-          <a href="#obs-filter" class="chip">ML Research</a>
+          <a href="#obs-filter" class="chip">Dolor</a>
         </div>
         <div class="article-hero__byline">
           <div class="avatar-stack" aria-hidden="true">
@@ -5007,8 +4963,8 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
         <div class="related-card__body">
           <div class="related-card__meta">
-            <a href="#obs-filter" class="chip">Integrations</a>
-            <a href="#obs-filter" class="chip">How To</a>
+            <a href="#obs-filter" class="chip">Sit</a>
+            <a href="#obs-filter" class="chip">Dolor</a>
             <span class="related-card__date">May 01, 2023</span>
           </div>
           <h3 class="related-card__title"><a href="#obs-article">From ES|QL to Pandas dataframes in&nbsp;Python</a></h3>
@@ -5024,8 +4980,8 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
         <div class="related-card__body">
           <div class="related-card__meta">
-            <a href="#obs-filter" class="chip">Vector</a>
-            <a href="#obs-filter" class="chip">How To</a>
+            <a href="#obs-filter" class="chip">Sit</a>
+            <a href="#obs-filter" class="chip">Dolor</a>
             <span class="related-card__date">May 01, 2023</span>
           </div>
           <h3 class="related-card__title"><a href="#obs-article">Vector Similarity Computations — ludicrous speed</a></h3>
@@ -5041,8 +4997,8 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
         <div class="related-card__body">
           <div class="related-card__meta">
-            <a href="#obs-filter" class="chip">Lucene</a>
-            <a href="#obs-filter" class="chip">How To</a>
+            <a href="#obs-filter" class="chip">Sit</a>
+            <a href="#obs-filter" class="chip">Dolor</a>
             <span class="related-card__date">May 01, 2023</span>
           </div>
           <h3 class="related-card__title"><a href="#obs-article">Improving text expansion performance using token&nbsp;pruning</a></h3>
@@ -5079,7 +5035,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <article class="blog-feed__featured">
             <div class="blog-feed__featured-content">
               <div class="blog-feed__featured-meta">
-                <a href="#obs-filter" class="chip">Lorem</a>
+                <a href="#obs-filter" class="chip">Sit</a>
                 <span class="related-card__date">May 01, 2026</span>
               </div>
               <h3 class="blog-feed__featured-title"><a href="#obs-article">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h3>
@@ -5100,7 +5056,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#obs-filter" class="chip">Lorem</a>
+                  <a href="#obs-filter" class="chip">Dolor</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#obs-article">Ut enim ad minim veniam quis nostrud</a></h3>
@@ -5116,7 +5072,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#obs-filter" class="chip">Ipsum</a>
+                  <a href="#obs-filter" class="chip">Sit</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#obs-article">Duis aute irure dolor in reprehenderit</a></h3>
@@ -5202,7 +5158,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Integrations</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -5217,7 +5173,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Vector Search</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -5232,7 +5188,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Integrations</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -5247,7 +5203,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Vector Search</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -5262,7 +5218,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Integrations</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -5277,7 +5233,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Vector Search</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -5292,7 +5248,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Integrations</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -5307,7 +5263,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#obs-filter" class="chip">Vector Search</a><a href="#obs-filter" class="chip">How To</a>
+              <a href="#obs-filter" class="chip">Dolor</a><a href="#obs-filter" class="chip">Sit</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#obs-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -5347,7 +5303,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <div class="featured__image" role="img" aria-label="Featured article image placeholder"></div>
             <div class="featured__body">
               <div class="featured__meta">
-                <a href="#sec-filter" class="chip">Lucene</a>
+                <a href="#sec-filter" class="chip">Amet</a>
                 <span class="featured__date">May 01, 2023</span>
               </div>
               <h2 class="featured__title"><a href="#sec-article">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do</a></h2>
@@ -5358,7 +5314,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <ul class="popular__list">
               <li class="popular__item">
                 <div class="popular__head">
-                  <div class="popular__chips"><a href="#sec-filter" class="chip">Lucene</a></div>
+                  <div class="popular__chips"><a href="#sec-filter" class="chip">Consectetur</a></div>
                   <span class="popular__date">May 01, 2023</span>
                 </div>
                 <h3 class="popular__title">
@@ -5367,7 +5323,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               </li>
               <li class="popular__item">
                 <div class="popular__head">
-                  <div class="popular__chips"><a href="#sec-filter" class="chip">How To</a><a href="#sec-filter" class="chip">Lucene</a></div>
+                  <div class="popular__chips"><a href="#sec-filter" class="chip">Amet</a><a href="#sec-filter" class="chip">Consectetur</a></div>
                   <span class="popular__date">May 01, 2023</span>
                 </div>
                 <h3 class="popular__title">
@@ -5376,7 +5332,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               </li>
               <li class="popular__item">
                 <div class="popular__head">
-                  <div class="popular__chips"><a href="#sec-filter" class="chip">How To</a><a href="#sec-filter" class="chip">Lucene</a></div>
+                  <div class="popular__chips"><a href="#sec-filter" class="chip">Amet</a><a href="#sec-filter" class="chip">Consectetur</a></div>
                   <span class="popular__date">May 01, 2023</span>
                 </div>
                 <h3 class="popular__title">
@@ -5385,20 +5341,11 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               </li>
               <li class="popular__item">
                 <div class="popular__head">
-                  <div class="popular__chips"><a href="#sec-filter" class="chip">Threat Intel</a></div>
+                  <div class="popular__chips"><a href="#sec-filter" class="chip">Amet</a></div>
                   <span class="popular__date">May 01, 2023</span>
                 </div>
                 <h3 class="popular__title">
                   <a href="#sec-article">Excepteur sint occaecat cupidatat non proident sunt in culpa</a>
-                </h3>
-              </li>
-              <li class="popular__item">
-                <div class="popular__head">
-                  <div class="popular__chips"><a href="#sec-filter" class="chip">Detection</a><a href="#sec-filter" class="chip">How To</a></div>
-                  <span class="popular__date">May 01, 2023</span>
-                </div>
-                <h3 class="popular__title">
-                  <a href="#sec-article">Officia deserunt mollit anim id est laborum sed ut perspiciatis</a>
                 </h3>
               </li>
             </ul>
@@ -5431,7 +5378,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Integrations</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Consectetur</a><a href="#sec-filter" class="chip">Amet</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -5446,7 +5393,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Vector Search</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Consectetur</a><a href="#sec-filter" class="chip">Amet</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -5461,7 +5408,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Neural Search</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Consectetur</a><a href="#sec-filter" class="chip">Amet</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -5476,7 +5423,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Integrations</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Consectetur</a><a href="#sec-filter" class="chip">Amet</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -5491,7 +5438,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Vector Search</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Consectetur</a><a href="#sec-filter" class="chip">Amet</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -5506,7 +5453,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Neural Search</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Consectetur</a><a href="#sec-filter" class="chip">Amet</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -5521,7 +5468,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Integrations</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Consectetur</a><a href="#sec-filter" class="chip">Amet</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -5536,7 +5483,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Vector Search</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Consectetur</a><a href="#sec-filter" class="chip">Amet</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -5551,7 +5498,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Neural Search</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Consectetur</a><a href="#sec-filter" class="chip">Amet</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -5587,7 +5534,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <article class="blog-feed__featured">
             <div class="blog-feed__featured-content">
               <div class="blog-feed__featured-meta">
-                <a href="#sec-filter" class="chip">Lorem</a>
+                <a href="#sec-filter" class="chip">Consectetur</a>
                 <span class="related-card__date">May 01, 2026</span>
               </div>
               <h3 class="blog-feed__featured-title"><a href="#sec-article">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h3>
@@ -5608,7 +5555,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#sec-filter" class="chip">Lorem</a>
+                  <a href="#sec-filter" class="chip">Amet</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#sec-article">Ut enim ad minim veniam quis nostrud</a></h3>
@@ -5624,7 +5571,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#sec-filter" class="chip">Ipsum</a>
+                  <a href="#sec-filter" class="chip">Consectetur</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#sec-article">Duis aute irure dolor in reprehenderit</a></h3>
@@ -5640,7 +5587,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#sec-filter" class="chip">Dolor</a>
+                  <a href="#sec-filter" class="chip">Amet</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#sec-article">Excepteur sint occaecat cupidatat non proident</a></h3>
@@ -5656,7 +5603,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#sec-filter" class="chip">Sit</a>
+                  <a href="#sec-filter" class="chip">Consectetur</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#sec-article">Sed ut perspiciatis unde omnis iste natus error</a></h3>
@@ -5696,7 +5643,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <h1 class="article-hero__title">Evaluating search relevance part 2 &mdash; Phi-3 as relevance judge</h1>
         <p class="article-hero__intro">Discover this future of stateless Elasticsearch. Learn how we're investing in building a new fully cloud native architecture to push the boundaries of scale and speed.</p>
         <div class="article-hero__tags">
-          <a href="#sec-filter" class="chip">ML Research</a>
+          <a href="#sec-filter" class="chip">Amet</a>
         </div>
         <div class="article-hero__byline">
           <div class="avatar-stack" aria-hidden="true">
@@ -5785,8 +5732,8 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
         <div class="related-card__body">
           <div class="related-card__meta">
-            <a href="#sec-filter" class="chip">Integrations</a>
-            <a href="#sec-filter" class="chip">How To</a>
+            <a href="#sec-filter" class="chip">Consectetur</a>
+            <a href="#sec-filter" class="chip">Amet</a>
             <span class="related-card__date">May 01, 2023</span>
           </div>
           <h3 class="related-card__title"><a href="#sec-article">From ES|QL to Pandas dataframes in&nbsp;Python</a></h3>
@@ -5802,8 +5749,8 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
         <div class="related-card__body">
           <div class="related-card__meta">
-            <a href="#sec-filter" class="chip">Vector</a>
-            <a href="#sec-filter" class="chip">How To</a>
+            <a href="#sec-filter" class="chip">Consectetur</a>
+            <a href="#sec-filter" class="chip">Amet</a>
             <span class="related-card__date">May 01, 2023</span>
           </div>
           <h3 class="related-card__title"><a href="#sec-article">Vector Similarity Computations — ludicrous speed</a></h3>
@@ -5819,8 +5766,8 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
         <div class="related-card__body">
           <div class="related-card__meta">
-            <a href="#sec-filter" class="chip">Lucene</a>
-            <a href="#sec-filter" class="chip">How To</a>
+            <a href="#sec-filter" class="chip">Consectetur</a>
+            <a href="#sec-filter" class="chip">Amet</a>
             <span class="related-card__date">May 01, 2023</span>
           </div>
           <h3 class="related-card__title"><a href="#sec-article">Improving text expansion performance using token&nbsp;pruning</a></h3>
@@ -5843,6 +5790,21 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
       <div class="subpage-hero__inner">
         <h1 class="subpage-hero__title">Tag&rsquo;s page</h1>
         <p class="subpage-hero__subtitle">After you click on a tag</p>
+        <div class="active-filters" role="group" aria-label="Active filters">
+          <span class="active-filters__label">Active filters:</span>
+          <span class="chip chip--input">
+            Amet
+            <button type="button" class="chip__close" aria-label="Remove Amet filter">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </span>
+          <span class="chip chip--input">
+            Consectetur
+            <button type="button" class="chip__close" aria-label="Remove Consectetur filter">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </span>
+        </div>
       </div>
     </section>
 
@@ -5856,7 +5818,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <article class="blog-feed__featured">
             <div class="blog-feed__featured-content">
               <div class="blog-feed__featured-meta">
-                <a href="#sec-filter" class="chip">Lorem</a>
+                <a href="#sec-filter" class="chip">Amet</a>
                 <span class="related-card__date">May 01, 2026</span>
               </div>
               <h3 class="blog-feed__featured-title"><a href="#sec-article">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h3>
@@ -5877,7 +5839,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#sec-filter" class="chip">Threat Intel</a>
+                  <a href="#sec-filter" class="chip">Consectetur</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#sec-article">Ut enim ad minim veniam quis nostrud</a></h3>
@@ -5893,7 +5855,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#sec-filter" class="chip">Detection</a>
+                  <a href="#sec-filter" class="chip">Amet</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#sec-article">Duis aute irure dolor in reprehenderit</a></h3>
@@ -5909,7 +5871,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#sec-filter" class="chip">Lucene</a>
+                  <a href="#sec-filter" class="chip">Consectetur</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#sec-article">Excepteur sint occaecat cupidatat non proident</a></h3>
@@ -5925,7 +5887,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <a href="#sec-filter" class="chip">Endpoint</a>
+                  <a href="#sec-filter" class="chip">Amet</a>
                   <span class="related-card__date">May 01, 2026</span>
                 </div>
                 <h3 class="related-card__title"><a href="#sec-article">Sed ut perspiciatis unde omnis iste natus error</a></h3>
@@ -5978,7 +5940,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Integrations</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Amet</a><a href="#sec-filter" class="chip">Consectetur</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -5993,7 +5955,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Vector Search</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Amet</a><a href="#sec-filter" class="chip">Consectetur</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -6008,7 +5970,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Integrations</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Amet</a><a href="#sec-filter" class="chip">Consectetur</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -6023,7 +5985,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Vector Search</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Amet</a><a href="#sec-filter" class="chip">Consectetur</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -6038,7 +6000,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Integrations</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Amet</a><a href="#sec-filter" class="chip">Consectetur</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -6053,7 +6015,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Vector Search</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Amet</a><a href="#sec-filter" class="chip">Consectetur</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -6068,7 +6030,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Integrations</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Amet</a><a href="#sec-filter" class="chip">Consectetur</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -6083,7 +6045,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
           <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
           <div class="related-card__body">
             <div class="related-card__meta">
-              <a href="#sec-filter" class="chip">Vector Search</a><a href="#sec-filter" class="chip">How To</a>
+              <a href="#sec-filter" class="chip">Amet</a><a href="#sec-filter" class="chip">Consectetur</a>
               <span class="related-card__date">May 01, 2023</span>
             </div>
             <h3 class="related-card__title"><a href="#sec-article">Sed do eiusmod tempor incididunt ut labore et dolore magna</a></h3>
@@ -6128,7 +6090,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <div class="featured__image" role="img" aria-label="Featured article image placeholder"></div>
                 <div class="featured__body">
                   <div class="featured__meta">
-                    <a href="#company:solutions" class="chip">Solutions</a>
+                    <a href="#company:solutions" class="chip">Adipiscing</a>
                     <span class="featured__date">May 01, 2026</span>
                   </div>
                   <h2 class="featured__title"><a href="#comp-article">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h2>
@@ -6139,7 +6101,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <ul class="popular__list">
                   <li class="popular__item">
                     <div class="popular__head">
-                      <div class="popular__chips"><a href="#company:customers" class="chip">Customers</a></div>
+                      <div class="popular__chips"><a href="#company:customers" class="chip">Elit</a></div>
                       <span class="popular__date">May 01, 2026</span>
                     </div>
                     <h3 class="popular__title">
@@ -6148,7 +6110,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                   </li>
                   <li class="popular__item">
                     <div class="popular__head">
-                      <div class="popular__chips"><a href="#company:news" class="chip">Company</a><a href="#company:stack-cloud" class="chip">Cloud</a></div>
+                      <div class="popular__chips"><a href="#company:news" class="chip">Adipiscing</a><a href="#company:stack-cloud" class="chip">Elit</a></div>
                       <span class="popular__date">May 01, 2026</span>
                     </div>
                     <h3 class="popular__title">
@@ -6157,7 +6119,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                   </li>
                   <li class="popular__item">
                     <div class="popular__head">
-                      <div class="popular__chips"><a href="#company:generative-ai" class="chip">Generative AI</a></div>
+                      <div class="popular__chips"><a href="#company:generative-ai" class="chip">Adipiscing</a></div>
                       <span class="popular__date">May 01, 2026</span>
                     </div>
                     <h3 class="popular__title">
@@ -6166,20 +6128,11 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                   </li>
                   <li class="popular__item">
                     <div class="popular__head">
-                      <div class="popular__chips"><a href="#company:culture" class="chip">Culture</a></div>
+                      <div class="popular__chips"><a href="#company:culture" class="chip">Elit</a></div>
                       <span class="popular__date">May 01, 2026</span>
                     </div>
                     <h3 class="popular__title">
                       <a href="#comp-article">Sed ut perspiciatis unde omnis iste natus error sit</a>
-                    </h3>
-                  </li>
-                  <li class="popular__item">
-                    <div class="popular__head">
-                      <div class="popular__chips"><a href="#company:solutions" class="chip">Solutions</a><a href="#company:customers" class="chip">Customers</a></div>
-                      <span class="popular__date">May 01, 2026</span>
-                    </div>
-                    <h3 class="popular__title">
-                      <a href="#comp-article">Nemo enim ipsam voluptatem quia voluptas sit aspernatur</a>
                     </h3>
                   </li>
                 </ul>
@@ -6211,7 +6164,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
                 <div class="related-card__body">
                   <div class="related-card__meta">
-                    <a href="#company:solutions" class="chip">Solutions</a>
+                    <a href="#company:solutions" class="chip">Adipiscing</a>
                     <span class="related-card__date">May 01, 2026</span>
                   </div>
                   <h3 class="related-card__title"><a href="#comp-article">Lorem ipsum dolor sit amet consectetur adipiscing</a></h3>
@@ -6226,7 +6179,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
                 <div class="related-card__body">
                   <div class="related-card__meta">
-                    <a href="#company:customers" class="chip">Customers</a>
+                    <a href="#company:customers" class="chip">Elit</a>
                     <span class="related-card__date">May 01, 2026</span>
                   </div>
                   <h3 class="related-card__title"><a href="#comp-article">Sed do eiusmod tempor incididunt ut labore et dolore</a></h3>
@@ -6241,7 +6194,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
                 <div class="related-card__body">
                   <div class="related-card__meta">
-                    <a href="#company:stack-cloud" class="chip">Stack + Cloud</a>
+                    <a href="#company:stack-cloud" class="chip">Adipiscing</a>
                     <span class="related-card__date">May 01, 2026</span>
                   </div>
                   <h3 class="related-card__title"><a href="#comp-article">Ut enim ad minim veniam quis nostrud exercitation</a></h3>
@@ -6256,7 +6209,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
                 <div class="related-card__body">
                   <div class="related-card__meta">
-                    <a href="#company:news" class="chip">Company</a>
+                    <a href="#company:news" class="chip">Elit</a>
                     <span class="related-card__date">May 01, 2026</span>
                   </div>
                   <h3 class="related-card__title"><a href="#comp-article">Duis aute irure dolor in reprehenderit voluptate</a></h3>
@@ -6271,7 +6224,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
                 <div class="related-card__body">
                   <div class="related-card__meta">
-                    <a href="#company:generative-ai" class="chip">Generative AI</a>
+                    <a href="#company:generative-ai" class="chip">Adipiscing</a>
                     <span class="related-card__date">May 01, 2026</span>
                   </div>
                   <h3 class="related-card__title"><a href="#comp-article">Excepteur sint occaecat cupidatat non proident sunt</a></h3>
@@ -6286,7 +6239,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
                 <div class="related-card__body">
                   <div class="related-card__meta">
-                    <a href="#company:culture" class="chip">Culture</a>
+                    <a href="#company:culture" class="chip">Elit</a>
                     <span class="related-card__date">May 01, 2026</span>
                   </div>
                   <h3 class="related-card__title"><a href="#comp-article">Sed ut perspiciatis unde omnis iste natus error sit</a></h3>
@@ -6301,7 +6254,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
                 <div class="related-card__body">
                   <div class="related-card__meta">
-                    <a href="#company:solutions" class="chip">Solutions</a>
+                    <a href="#company:solutions" class="chip">Adipiscing</a>
                     <span class="related-card__date">May 01, 2026</span>
                   </div>
                   <h3 class="related-card__title"><a href="#comp-article">Nemo enim ipsam voluptatem quia voluptas sit</a></h3>
@@ -6316,7 +6269,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
                 <div class="related-card__body">
                   <div class="related-card__meta">
-                    <a href="#company:customers" class="chip">Customers</a>
+                    <a href="#company:customers" class="chip">Elit</a>
                     <span class="related-card__date">May 01, 2026</span>
                   </div>
                   <h3 class="related-card__title"><a href="#comp-article">Quis autem vel eum iure reprehenderit qui in ea</a></h3>
@@ -6331,7 +6284,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
                 <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
                 <div class="related-card__body">
                   <div class="related-card__meta">
-                    <a href="#company:news" class="chip">Company</a>
+                    <a href="#company:news" class="chip">Adipiscing</a>
                     <span class="related-card__date">May 01, 2026</span>
                   </div>
                   <h3 class="related-card__title"><a href="#comp-article">Officia deserunt mollit anim id est laborum sed ut</a></h3>
@@ -6356,7 +6309,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <article class="blog-feed__featured">
               <div class="blog-feed__featured-content">
                 <div class="blog-feed__featured-meta">
-                  <span class="chip">Lorem</span>
+                  <span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="blog-feed__featured-title"><a href="#comp-article">Sit amet consectetur adipiscing elit</a></h3>
@@ -6375,7 +6328,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Lorem</span><span class="chip">Ipsum</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Ut enim ad minim veniam quis nostrud</a></h3>
@@ -6390,7 +6343,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Dolor</span><span class="chip">Amet</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Duis aute irure dolor in reprehenderit</a></h3>
@@ -6405,7 +6358,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Lorem</span><span class="chip">Ipsum</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Excepteur sint occaecat cupidatat non proident</a></h3>
@@ -6420,7 +6373,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Dolor</span><span class="chip">Amet</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Sed ut perspiciatis unde omnis iste natus error</a></h3>
@@ -6453,7 +6406,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <article class="blog-feed__featured">
               <div class="blog-feed__featured-content">
                 <div class="blog-feed__featured-meta">
-                  <span class="chip">Cloud</span>
+                  <span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="blog-feed__featured-title"><a href="#comp-article">Nemo enim ipsam voluptatem quia voluptas</a></h3>
@@ -6472,7 +6425,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Cloud</span><span class="chip">Hybrid</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Quis autem vel eum iure reprehenderit qui</a></h3>
@@ -6487,7 +6440,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Stack</span><span class="chip">Cloud</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">At vero eos et accusamus et iusto odio</a></h3>
@@ -6502,7 +6455,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Cloud</span><span class="chip">Hybrid</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Et harum quidem rerum facilis est et</a></h3>
@@ -6517,7 +6470,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Stack</span><span class="chip">Cloud</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Eligendi optio cumque nihil impedit quo</a></h3>
@@ -6550,7 +6503,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <article class="blog-feed__featured">
               <div class="blog-feed__featured-content">
                 <div class="blog-feed__featured-meta">
-                  <span class="chip">News</span>
+                  <span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="blog-feed__featured-title"><a href="#comp-article">Excepteur sint occaecat cupidatat non proident</a></h3>
@@ -6569,7 +6522,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Adipiscing</span><span class="chip">Sed</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Magna aliqua ut enim ad minim veniam</a></h3>
@@ -6584,7 +6537,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Commodo consequat duis aute irure dolor</a></h3>
@@ -6599,7 +6552,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Adipiscing</span><span class="chip">Sed</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Nulla pariatur excepteur sint occaecat</a></h3>
@@ -6614,7 +6567,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Anim id est laborum sed perspiciatis</a></h3>
@@ -6647,7 +6600,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <article class="blog-feed__featured">
               <div class="blog-feed__featured-content">
                 <div class="blog-feed__featured-meta">
-                  <span class="chip">Customer</span>
+                  <span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="blog-feed__featured-title"><a href="#comp-article">Quis autem vel eum iure reprehenderit qui in</a></h3>
@@ -6666,7 +6619,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Eiusmod</span><span class="chip">Tempor</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Laudantium totam rem aperiam eaque ipsa</a></h3>
@@ -6681,7 +6634,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Incididunt</span><span class="chip">Eiusmod</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Dicta sunt explicabo nemo enim ipsam</a></h3>
@@ -6696,7 +6649,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Eiusmod</span><span class="chip">Tempor</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Quia consequuntur magni dolores eos qui</a></h3>
@@ -6711,7 +6664,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Incididunt</span><span class="chip">Eiusmod</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Dolorem ipsum quia dolor sit amet consectetur</a></h3>
@@ -6744,7 +6697,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <article class="blog-feed__featured">
               <div class="blog-feed__featured-content">
                 <div class="blog-feed__featured-meta">
-                  <span class="chip">AI</span>
+                  <span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="blog-feed__featured-title"><a href="#comp-article">Temporibus autem quibusdam et aut officiis debitis</a></h3>
@@ -6763,7 +6716,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Labore</span><span class="chip">Magna</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Itaque earum rerum hic tenetur a sapiente</a></h3>
@@ -6778,7 +6731,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Dolore</span><span class="chip">Labore</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Perferendis doloribus asperiores repellat</a></h3>
@@ -6793,7 +6746,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Labore</span><span class="chip">Magna</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Cum soluta nobis est eligendi optio cumque</a></h3>
@@ -6808,7 +6761,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Dolore</span><span class="chip">Labore</span>
+                  <span class="chip">Adipiscing</span><span class="chip">Elit</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Vel illum qui dolorem eum fugiat quo voluptas</a></h3>
@@ -6841,7 +6794,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <article class="blog-feed__featured">
               <div class="blog-feed__featured-content">
                 <div class="blog-feed__featured-meta">
-                  <span class="chip">Culture</span>
+                  <span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="blog-feed__featured-title"><a href="#comp-article">Nam libero tempore cum soluta nobis est</a></h3>
@@ -6860,7 +6813,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Aliqua</span><span class="chip">Ullamco</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Facere possimus omnis voluptas assumenda</a></h3>
@@ -6875,7 +6828,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Laboris</span><span class="chip">Aliqua</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Debitis aut rerum necessitatibus saepe</a></h3>
@@ -6890,7 +6843,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Aliqua</span><span class="chip">Ullamco</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Itaque earum rerum hic tenetur sapiente</a></h3>
@@ -6905,7 +6858,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
               <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
               <div class="related-card__body">
                 <div class="related-card__meta">
-                  <span class="chip">Laboris</span><span class="chip">Aliqua</span>
+                  <span class="chip">Elit</span><span class="chip">Adipiscing</span>
                   <span class="related-card__date">May 01, 2023</span>
                 </div>
                 <h3 class="related-card__title"><a href="#comp-article">Perferendis doloribus asperiores repellat</a></h3>
@@ -6940,7 +6893,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
         <h1 class="article-hero__title" data-comp-article-title>How modern data teams are reshaping the search experience</h1>
         <p class="article-hero__intro">A look at how product, engineering, and customer-success teams across industries are using Elastic to unify their data platforms and accelerate decision-making.</p>
         <div class="article-hero__tags">
-          <a href="#company:solutions" class="chip" data-comp-article-chip>Solutions</a>
+          <a href="#company:solutions" class="chip" data-comp-article-chip>Adipiscing</a>
         </div>
         <div class="article-hero__byline">
           <div class="avatar-stack" aria-hidden="true">
@@ -7014,7 +6967,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
             <div class="related-card__body">
               <div class="related-card__meta">
-                <a href="#company:customers" class="chip">Customers</a>
+                <a href="#company:customers" class="chip">Elit</a>
                 <span class="related-card__date">May 01, 2026</span>
               </div>
               <h3 class="related-card__title"><a href="#comp-article">How a Fortune 500 retailer cut search latency by 60%</a></h3>
@@ -7030,7 +6983,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
             <div class="related-card__body">
               <div class="related-card__meta">
-                <a href="#company:news" class="chip">News</a>
+                <a href="#company:news" class="chip">Adipiscing</a>
                 <span class="related-card__date">May 01, 2026</span>
               </div>
               <h3 class="related-card__title"><a href="#comp-article">Announcing our new partnership with leading AI platforms</a></h3>
@@ -7046,7 +6999,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <div class="related-card__image" role="img" aria-label="Article image placeholder"></div>
             <div class="related-card__body">
               <div class="related-card__meta">
-                <a href="#company:culture" class="chip">Culture</a>
+                <a href="#company:culture" class="chip">Elit</a>
                 <span class="related-card__date">May 01, 2026</span>
               </div>
               <h3 class="related-card__title"><a href="#comp-article">Inside our remote-first engineering culture</a></h3>
@@ -7231,6 +7184,7 @@ filled_prompt = PROMPT_TEMPLATE.<span class="tok-function">replace</span>(<span 
             <a href="#">Terms of Use</a>
             <a href="#">Privacy</a>
             <a href="#">Sitemap</a>
+            <a href="components.html">Component Library</a>
           </div>
           <p class="footer__legal-copy">&copy; 2026. Elasticsearch B.V. All Rights Reserved</p>
         </div>
